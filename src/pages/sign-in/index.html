@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webchat</title>
+    <style>
+       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  color: #1e1e1e;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11px;
+
+  color: #3369f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.sign-in__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #999999;
+}
+
+.container {
+  margin-top: 50px;
+  margin-inline: auto;
+  max-width: 340px;
+  max-height: 460px;
+  padding: 30px;
+  padding-top: 50px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+  background-color: white;
+}
+
+.sign-in__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.sign-in__form {
+  margin-bottom: 169px;
+}
+
+.sign-in__form input {
+  border: none;
+  border-bottom: 1px solid #3369f3;
+  height: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.sign-in__form input::placeholder {
+  font-size: 13px;
+  line-height: 13px;
+
+  color: #999999;
+}
+
+.sing-in__actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-in__btn {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+
+  text-align: center;
+
+  color: #ffffff;
+  display: block;
+  padding: 12px 70px;
+  margin-bottom: 14px;
+  border: none;
+  background: #3369f3;
+  border-radius: 8px;
+}
+
+.goto-sign-up__link {
+  text-align: center;
+}
+
+    </style>
+  </head>
+  <body> </body>
+  <div class="sign-in__page">
+    <div class="container">
+      <div class="sign-in">
+        <h1 class="sign-in__title">Вход</h1>
+        <div class="sign-in__form">
+          <input class="sing-in__login" type="text" placeholder="Логин">
+          <input class="sign-in__password" type="text" placeholder="Пароль">
+        </div>
+        <div class="sing-in__actions">
+          <button class="sign-in__btn">Авторизоваться</button><a class="goto-sign-up__link" href="/src/pages/sign-up/"><span class="goto-sign-up__text">Нет аккаунта?</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
