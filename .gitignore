@@ -1,4 +1,4 @@
 /node_modules
 /dist
-.parcel-cache
-.github
+/.parcel-cache
+/.github
