@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/andreyatx/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@parcel/transformer-pug": "2.2.1"
+    "@parcel/transformer-pug": "2.2.1",
+    "parcel": "^2.7.0",
+    "pug": "^3.0.2"
   }
 }
