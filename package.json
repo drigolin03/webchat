@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "web chat student project",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel static/index.html --open",
-    "build": "parcel build static/index.pug --public-url ./"
+    "start:dev": "parcel ./src/pages/home/index.pug --open --no-cache",
+    "build": "parcel build ./src/pages/*.pug --public-url ./",
+    "start": "npm install && npm run build && node ./server.js"
   },
   "repository": {
     "type": "git",
@@ -18,16 +18,6 @@
   },
   "homepage": "https://github.com/andreyatx/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@parcel/config-default": "^2.7.0",
-    "@parcel/transformer-css": "^2.7.0",
-    "@parcel/transformer-postcss": "^2.7.0",
-    "@parcel/transformer-pug": "^2.7.0",
-    "parcel": "^2.7.0",
-    "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0",
-    "postcss-import": "^14.1.0",
-    "postcss-modules": "^5.0.0",
-    "postcss-preset-env": "^7.8.0",
-    "pug": "^3.0.2"
+    "@parcel/transformer-pug": "2.2.1"
   }
 }
