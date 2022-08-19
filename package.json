@@ -19,7 +19,9 @@
   "homepage": "https://github.com/andreyatx/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
     "@parcel/transformer-pug": "2.2.1",
+    "autoprefixer": "^10.4.8",
     "parcel": "^2.7.0",
+    "postcss-nested": "^5.0.6",
     "pug": "^3.0.2"
   }
 }
