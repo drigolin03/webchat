@@ -4,7 +4,7 @@
   "description": "web chat student project",
   "scripts": {
     "start:dev": "parcel ./src/pages/home/index.pug --open --no-cache",
-    "build": "parcel build ./src/pages/",
+    "build": "parcel build ./src/pages/home/index.pug",
     "start": "npm install && npm run build && node ./server.js"
   },
   "repository": {
