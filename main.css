@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import "./src/components/button/styles.css";
+@import "./src/components/input/styles.css";
+
+:root {
+  --color-white: #ffffff;
+  --color-text: #1e1e1e;
+  --color-primary: #3369f3;
+  --color-secondary: #999999;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+a,
+a:visited {
+  color: var(--color-primary);
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.main {
+  height: 100vh;
+  background-color: #999;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.card {
+  padding: 30px;
+  padding-top: 50px;
+  max-width: 340px;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+}

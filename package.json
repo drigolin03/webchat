@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "web chat student project",
   "scripts": {
-    "start:dev": "parcel ./src/pages/home/index.pug --open --no-cache",
+    "start:dev": "parcel ./src/pages/*.pug --open --no-cache",
     "build": "parcel build ./src/pages/home/index.pug",
     "start": "npm install && npm run build && node ./server.js"
   },
@@ -19,8 +19,9 @@
   "homepage": "https://github.com/andreyatx/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
     "@parcel/transformer-pug": "2.2.1",
-    "autoprefixer": "^10.4.8",
     "parcel": "^2.7.0",
+    "postcss": "^8.4.16",
+    "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.6",
     "pug": "^3.0.2"
   }

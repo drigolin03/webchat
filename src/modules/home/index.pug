@@ -1,0 +1,13 @@
+extends ../../layouts/base-layout.pug
+
+block head 
+  link(rel="stylesheet", href="/src/modules/home/styles.css")
+
+block content
+  .main
+    .container
+      h1.title Чат. Студенческий проект
+      h2.links Ссылки:
+      ul.nav
+        li.nav-item 
+          a.nav-link(href="/src/pages/sign-in.pug" target="_blank") Вход
