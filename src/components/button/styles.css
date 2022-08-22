@@ -7,11 +7,12 @@
 
   text-align: center;
 
-  color: #ffffff;
+  color: var(--color-white);
   display: block;
   padding: 12px 70px;
   margin-bottom: 14px;
   border: none;
-  background: #3369f3;
+  background: var(--color-primary);
   border-radius: 8px;
+  cursor: pointer;
 }

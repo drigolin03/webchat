@@ -1,0 +1,11 @@
+extends ../../layouts/base-layout.pug
+
+block head 
+  link(rel="stylesheet", href="/src/modules/error404/styles.css")
+
+block content
+  .main
+    .error
+      h1.title 500
+      p.description Мы уже фиксим
+      a(href="index.pug").back Назад к чатам 
