@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "web chat student project",
   "scripts": {
-    "start:dev": "parcel ./src/pages/*.pug --open --no-cache",
+    "dev": "parcel ./src/pages/*.pug --open --no-cache",
     "build": "parcel build ./src/pages/index.pug",
     "start": "npm install && npm run build && node ./server.js"
   },
