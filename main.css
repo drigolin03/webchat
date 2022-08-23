@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 @import "./src/components/button/styles.css";
 @import "./src/components/input/styles.css";
+@import "./src/components/data-field/styles.css";
 
 :root {
   --color-white: #ffffff;
   --color-text: #1e1e1e;
   --color-primary: #3369f3;
   --color-secondary: #999999;
+  --color-light-gray: #efefef;
+  --color-red: #ff0000;
 }
 
 html,
@@ -30,11 +33,10 @@ p {
 
 a,
 a:visited {
-  color: var(--color-primary);
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 11px;
   text-decoration: none;
   &:hover {
@@ -61,4 +63,8 @@ ul {
   background: var(--color-white);
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
   border-radius: 12px;
+}
+
+.link {
+  color: var(--color-primary);
 }
