@@ -1,6 +1,6 @@
 # Webchat
 
-Student project using PUG and Postcss
+Student project using Pug and Postcss
 
 ## Requirements
 
