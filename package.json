@@ -4,7 +4,7 @@
   "description": "web chat student project",
   "scripts": {
     "start:dev": "parcel ./src/pages/*.pug --open --no-cache",
-    "build": "parcel build ./src/pages/home/index.pug",
+    "build": "parcel build ./src/pages/index.pug",
     "start": "npm install && npm run build && node ./server.js"
   },
   "repository": {
@@ -24,5 +24,8 @@
     "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.6",
     "pug": "^3.0.2"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
