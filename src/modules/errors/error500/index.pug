@@ -1,5 +1,8 @@
 extends ../../../layouts/base-layout.pug
 
+block layoutVars 
+  - const TITLE = "Error 500"
+
 block head 
   link(rel="stylesheet", href="/src/modules/errors/styles.css")
 

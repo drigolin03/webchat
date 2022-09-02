@@ -2,6 +2,9 @@ extends ../../layouts/base-layout.pug
 include ../../components/button/index.pug
 include ../../components/input/index.pug
 
+block layoutVars 
+  - const TITLE = "Sign In Page"
+
 block head 
   link(rel="stylesheet", href="/src/modules/sign-in/styles.css")
 
