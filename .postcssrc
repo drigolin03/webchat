@@ -1,6 +1,9 @@
 {
-  "plugins": {
-    "postcss-nested": true,
-    "postcss-import": true
-  }
+	"plugins": {
+		"postcss-nested": true,
+		"postcss-import": true,
+		"postcss-preset-env": {
+			"stage": 0
+		}
+	}
 }
