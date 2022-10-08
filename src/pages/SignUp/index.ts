@@ -2,6 +2,7 @@ import Block from "../../utils/Block";
 import template from "./signUp.pug";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import "../../components/Input/styles.css";
 import "./styles.css";
 
 interface SignUpProps {
