@@ -1,6 +1,6 @@
 import Block from "../../../utils/Block";
 import template from "./changePassword.pug";
-import { Button } from "../../../components/Button";
+import { Button } from "../../../components/button";
 import { Input } from "../../../components/Input";
 import { DataField } from "../../../components/DataField";
 import changeAvatar from "../../../assets/img/changeAvatar.png";
