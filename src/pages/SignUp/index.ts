@@ -3,6 +3,8 @@ import template from "./signUp.pug";
 import { Button } from "../../components/button";
 import { Input } from "../../components/input";
 import "../../components/Input/styles.css";
+import "../../components/Button/styles.css";
+
 import "./styles.css";
 
 interface SignUpProps {
