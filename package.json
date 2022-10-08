@@ -26,6 +26,7 @@
 		"express": "4.18.1",
 		"nanoid": "^4.0.0",
 		"parcel": "2.7.0",
+		"parcel-bundler": "^1.12.5",
 		"parcel-transformer-pug-precompile": "1.0.6",
 		"postcss": "^8.4.17",
 		"postcss-import": "^15.0.0",
