@@ -1,0 +1,14 @@
+@import "../../main.css";
+
+body {
+	background-color: var(--color-white);
+	text-align: center;
+}
+
+.title {
+	margin-bottom: 20px;
+}
+
+.description {
+	margin-bottom: 68px;
+}

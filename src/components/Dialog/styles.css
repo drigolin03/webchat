@@ -1,0 +1,60 @@
+@import "../../main.css";
+
+.dialog {
+	display: flex;
+	cursor: pointer;
+	width: 290px;
+	.avatar {
+		width: 47px;
+		height: 47px;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		background: var(--color-light-gray);
+		flex-shrink: 0;
+	}
+	.message {
+		text-align: left;
+		flex: 1 1 auto;
+		padding-left: 10px;
+		max-width: 192px;
+		.name {
+			font-weight: 600;
+			font-size: 13px;
+			line-height: 13px;
+			padding-bottom: 4px;
+		}
+		.text {
+			font-weight: 500;
+			font-size: 12px;
+		}
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		flex: 1 0 auto;
+		.time {
+			font-weight: 500;
+			font-size: 9px;
+			line-height: 13px;
+			color: var(--color-secondary);
+		}
+		.new-message {
+			width: 20px;
+			height: 20px;
+			background: var(--color-primary);
+			color: var(--color-white);
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 500;
+			font-size: 11px;
+			line-height: 12px;
+		}
+	}
+}

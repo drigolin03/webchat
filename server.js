@@ -7,9 +7,9 @@ const path = require("path");
 app.use(express.static("./dist"));
 
 app.get(/(.*?)/, (req, res) => {
-  res.sendFile(__dirname + "/dist/index.html");
+	res.sendFile(__dirname + "/dist/index.html");
 });
 
 app.listen(PORT, function () {
-  console.log(`Your server available at http://localhost:${PORT}`);
+	console.log(`Your server available at http://localhost:${PORT}`);
 });
