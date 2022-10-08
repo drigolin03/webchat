@@ -4,5 +4,13 @@
 
 [[redirects]]
   from = "/*"
+  from = "/auth"
+  from = "/registration"
+  from = "/profile"
+  from = "/change-user-data"
+  from = "/change-password"
+  from = "/chat"
+  from = "/404"
+  from = "/500"
   to = "/index.html"
   status = 200
