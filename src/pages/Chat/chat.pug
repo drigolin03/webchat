@@ -1,0 +1,51 @@
+.chat
+	.left-panel
+		.profile-link 
+			a(href="/profile") Профиль
+				img(src=right_arrow_simple alt="Стрелка вперед")
+		.search
+			input(placeholder="Поиск")
+		ul.chat-list
+			|	!{chatList}
+	.right-panel 
+		.header
+			.title 
+				.avatar
+				.name Вадим
+			.settings
+				img(src=settings_dots alt="Опции")
+		.chat-window
+			.container
+				time.date-time(datetime="2022-06-19") 19 июня
+				.receiver
+					.message
+						.text 
+							p Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.
+							p Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
+						.obj
+					.info 
+						.status
+						.time 11:56
+				.receiver 
+					.message 
+						.text
+						.obj
+							img(src=camera alt="Фотоаппарат" height="100%" width="100%")
+					.info 
+						.status
+						.time 11:56
+				.sender
+					.container
+						.text Круто!
+						.obj
+					.info 
+						.status
+							img(src=status_delivered alt="Статус прочитано")
+						.send-time 12:00
+		.footer
+			.panel__clip
+				img(src=attach_file_icon alt="Прикрепить")
+			.message
+				|	!{message}
+			.enter
+				img(src=send_icon, alt="Отправить")

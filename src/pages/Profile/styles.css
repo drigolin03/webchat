@@ -1,0 +1,56 @@
+@import "../../main.css";
+
+.main {
+	background-color: var(--color-white);
+}
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	width: 510px;
+}
+
+.userAvatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	background-color: var(--color-light-gray);
+	margin-inline: auto;
+	margin-bottom: 20px;
+	img {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.userName {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 16px;
+	margin-bottom: 30px;
+
+	text-align: center;
+}
+
+.userInfo {
+	margin-bottom: 60px;
+}
+
+.userActions {
+	text-align: left;
+	align-self: flex-start;
+	width: 100%;
+	.changeData,
+	.changePassword {
+		border-bottom: 1px var(--color-light-gray) solid;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+	}
+}
+
+.text-danger {
+	color: var(--color-red);
+}
