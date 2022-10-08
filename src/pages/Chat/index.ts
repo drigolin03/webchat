@@ -1,5 +1,5 @@
 import { Dialog } from "../../components/Dialog";
-import { Input } from "../../components/Input";
+import { Input } from "../../components/input";
 import Block from "../../utils/Block";
 import template from "./chat.pug";
 import avatar_stub from "../../assets/img/avatar_stub.png";
