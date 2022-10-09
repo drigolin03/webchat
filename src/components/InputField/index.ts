@@ -1,6 +1,6 @@
-import Block from '../../utils/Block';
-import template from './inputField.pug';
-import './styles.css';
+import Block from "../../utils/Block";
+import template from "./inputField.pug";
+import "./styles.css";
 interface InputFieldProps {
   errorMsg?: string;
   idInput?: string;
@@ -18,14 +18,14 @@ interface InputFieldProps {
   RegExp?: any;
   RegInput?: any;
   name?: string;
-  funBlur?: (env: FocusEvent) => void;
+  onBlur?: (env: FocusEvent) => void;
 }
 
 export class InputField extends Block {
   constructor(props: InputFieldProps) {
     super(props);
     this.props.events = {
-      blur: this.props.funBlur,
+      blur: this.props.onBlur,
     };
   }
 
