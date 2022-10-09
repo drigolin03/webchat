@@ -6,7 +6,7 @@ import changeAvatar from "../../assets/img/changeAvatar.png";
 
 interface ProfileProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];

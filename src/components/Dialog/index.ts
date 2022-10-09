@@ -1,7 +1,7 @@
-import Block from '../../utils/Block';
-import template from './dialog.pug';
-import avatar_stub from '../../assets/img/avatar_stub.png';
-import './styles.css';
+import Block from "../../utils/Block";
+import template from "./dialog.pug";
+import avatar_stub from "../../assets/img/avatar_stub.png";
+import "./styles.css";
 
 interface DialogProps {
   label: string;

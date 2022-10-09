@@ -5,7 +5,7 @@ import { InputField } from "../InputField";
 import template from "./input.pug";
 import "./styles.css";
 
-const INPUT_ERROR = "field__input_error";
+export const INPUT_ERROR = "field__input_error";
 
 interface InputProps {
   label: string;
@@ -64,9 +64,9 @@ export class Input extends Block {
       this.children.errorMessage.setProps({
         errorMessage: validationSettings[0],
       });
-      if (!(arrClasses.indexOf("INPUT_ERROR") > 0)) {
+      if (!(arrClasses.indexOf(INPUT_ERROR) > 0)) {
         this.children.inputField.setProps({
-          classes: inputClasses.push("INPUT_ERROR"),
+          classes: inputClasses.push(INPUT_ERROR),
           valueInput: val,
         });
       } else {
@@ -78,7 +78,7 @@ export class Input extends Block {
     } else {
       this.children.errorMessage.setProps({ errorMessage: "" });
       const strClasses = arrClasses
-        .filter((val) => val != "INPUT_ERROR")
+        .filter((val) => val != INPUT_ERROR)
         .join(" ");
       this.children.inputField.setProps({
         classes: strClasses,
