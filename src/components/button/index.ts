@@ -1,6 +1,6 @@
-import Block from "../../utils/Block";
-import template from "./button.pug";
-import "./styles.css";
+import Block from '../../utils/Block';
+import template from './button.pug';
+import './styles.css';
 
 interface ButtonProps {
   label: string;
@@ -15,12 +15,13 @@ interface ButtonProps {
 export class Button extends Block {
   constructor(props: ButtonProps) {
     if (props.url === undefined) {
-      props.url = "";
+      props.url = '';
     }
+
     super(props);
   }
 
   render() {
-    return this.compile(template, { ...this.props });
+    return this.compile(template, {...this.props});
   }
 }

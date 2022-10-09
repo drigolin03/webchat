@@ -75,7 +75,7 @@ export class SignIn extends Block {
             }
           },
         },
-        classes: "button main__button",
+        classes: "button main-button",
         type: "submit",
       }),
     ];

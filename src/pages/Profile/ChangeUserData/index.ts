@@ -102,7 +102,7 @@ export class ChangeUserData extends Block {
       events: {
         click: () => console.log("clicked!"),
       },
-      classes: "button main__button",
+      classes: "button main-button",
       url: "/profile",
     });
   }

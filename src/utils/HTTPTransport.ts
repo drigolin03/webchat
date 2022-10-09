@@ -25,17 +25,18 @@ function queryStringify(data: TRequestData) {
 
 export class HTTPTransport {
   public get = (url: string, options: TRequestOptions = {}): Promise<XMLHttpRequest> => {
-    if (!!options.data) {
+    if (options.data) {
       url = `${url}${queryStringify(options.data as TRequestData)}`;
     }
-    return this.request(url, { ...options, method: Methods.GET });
+
+    return this.request(url, {...options, method: Methods.GET});
   };
 
-  public post = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: Methods.POST });
+  public post = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, {...options, method: Methods.POST});
 
-  public put = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: Methods.PUT });
+  public put = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, {...options, method: Methods.PUT});
 
-  public delete = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: Methods.DELETE });
+  public delete = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, {...options, method: Methods.DELETE});
 
   request = (url: string, options: TRequestOptions = {}): any => {
     const {
@@ -55,7 +56,7 @@ export class HTTPTransport {
 
       xhr.open(method, url);
 
-      Object.keys(headers).forEach((key) => {
+      Object.keys(headers).forEach(key => {
         xhr.setRequestHeader(key, headers[key]);
       });
 

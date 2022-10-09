@@ -1,10 +1,10 @@
-import { ChangePassword } from ".";
+import {ChangePassword} from '.';
 
 export function changePassword() {
-  const root = document.querySelector("#app")!;
+  const root = document.querySelector('#app')!;
 
-  const changePassword = new ChangePassword({ title: "" });
+  const changePassword = new ChangePassword({title: ''});
 
-  root.innerHTML = "";
+  root.innerHTML = '';
   root.append(changePassword.getContent()!);
 }

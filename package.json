@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "parcel ./src/index.html --port 3000",
 		"build": "parcel build ./src/index.html",
-		"start": "npm run build && node ./server.js"
+		"start": "npm run build && node ./server.js",
+		"lint": "eslint . --fix && stylelint src/**/*.css --fix"
 	},
 	"repository": {
 		"type": "git",
@@ -36,5 +37,8 @@
 		"pug": "3.0.2",
 		"stylelint": "14.11.0",
 		"typescript": "4.7.4"
+	},
+	"dependencies": {
+		"stylelint-config-standard": "^28.0.0"
 	}
 }

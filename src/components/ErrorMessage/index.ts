@@ -1,6 +1,6 @@
-import Block from "../../utils/Block";
-import template from "./errorMessage.pug";
-import "./styles.css";
+import Block from '../../utils/Block';
+import template from './errorMessage.pug';
+import './styles.css';
 
 interface ErrorMessageProps {
   errorMessage: string;

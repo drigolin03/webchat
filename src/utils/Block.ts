@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid';
-import { EventBus } from './EventBus';
+import {nanoid} from 'nanoid';
+import {EventBus} from './EventBus';
 
 class Block {
   static EVENTS = {
@@ -22,7 +22,7 @@ class Block {
   protected children: Record<string, Block> | Record<string, Block[]>;
 
   /** JSDoc
-   * 
+   *
    * @param {Object} propsWithChildren
    *
    * @returns {void}
@@ -30,7 +30,7 @@ class Block {
   constructor(propsWithChildren: any = {}) {
     const eventBus = new EventBus();
 
-    const { props, children } = this._getChildrenAndProps(propsWithChildren);
+    const {props, children} = this._getChildrenAndProps(propsWithChildren);
 
     this._meta = {
       props,
@@ -53,7 +53,7 @@ class Block {
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
       if (value instanceof Array) {
-        value.forEach((val) => {
+        value.forEach(val => {
           if (val instanceof Block) {
             children[key] = value;
           }
@@ -65,7 +65,7 @@ class Block {
       }
     });
 
-    return { props, children };
+    return {props, children};
   }
 
   private _registerEvents(eventBus: EventBus) {
@@ -119,7 +119,6 @@ class Block {
 
     Object.assign(this.props, nextProps);
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
-
   };
 
   get element() {
@@ -143,11 +142,11 @@ class Block {
   }
 
   protected compile(template: (context: any) => string, context: any) {
-    const contextAndStubs = { ...context };
+    const contextAndStubs = {...context};
 
     Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
-        component.forEach((val) => {
+        component.forEach(val => {
           if (!contextAndStubs[name]) {
             contextAndStubs[name] = `<div data-id='${val._id}'></div>`;
           } else {
@@ -169,11 +168,12 @@ class Block {
     Object.entries(this.children).forEach(([, component]) => {
       let stub;
       if (Array.isArray(component)) {
-        component.forEach((val) => {
+        component.forEach(val => {
           stub = temp.content.querySelector(`[data-id='${val._id}']`);
           if (!stub) {
             return;
           }
+
           stub.replaceWith(val.getContent()!);
         });
       } else {
@@ -181,6 +181,7 @@ class Block {
         if (!stub) {
           return;
         }
+
         stub.replaceWith(component.getContent()!);
       }
     });
@@ -198,18 +199,18 @@ class Block {
 
   private _makePropsProxy(props: any) {
     return new Proxy(props, {
-      get: (target, prop) => {
+      get(target, prop) {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set: (target, prop, value) => {
-        const oldTarget = { ...target };
+        const oldTarget = {...target};
         target[prop] = value;
 
         this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
-      deleteProperty: () => {
+      deleteProperty() {
         throw new Error('Нет доступа');
       },
     });
@@ -228,28 +229,29 @@ class Block {
   }
 
   private _addEvents() {
-    const { events = {} } = this.props as { events: Record<string, () => void> };
+    const {events = {}} = this.props as { events: Record<string, () => void> };
 
-    Object.keys(events).forEach((eventName) => {
+    Object.keys(events).forEach(eventName => {
       this._element?.addEventListener(eventName, events[eventName]);
     });
   }
 
   private _addClass() {
-    const { classes = '' } = this.props as { classes: string };
+    const {classes = ''} = this.props as { classes: string };
     if (!classes) {
       return;
     }
+
     const arr = classes.split(' ');
-    arr.forEach((className) => {
+    arr.forEach(className => {
       this._element!.classList.add(className);
     });
   }
 
   private _removeEvents() {
-    const { events = {} } = this.props as { events: Record<string, () => void> };
+    const {events = {}} = this.props as { events: Record<string, () => void> };
 
-    Object.keys(events).forEach((eventName) => {
+    Object.keys(events).forEach(eventName => {
       this._element!.removeEventListener(eventName, events[eventName]);
     });
   }

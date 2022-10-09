@@ -1,6 +1,6 @@
-import Block from "../../utils/Block";
-import template from "./inputField.pug";
-import "./styles.css";
+import Block from '../../utils/Block';
+import template from './inputField.pug';
+import './styles.css';
 interface InputFieldProps {
   errorMsg?: string;
   idInput?: string;

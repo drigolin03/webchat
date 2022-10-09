@@ -1,14 +1,16 @@
 @import "../../main.css";
 
 .fields {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
+
 .actions {
-	flex-direction: column;
-	justify-content: center;
-	display: flex;
-	.main__button a {
-		color: var(--color-white);
-	}
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+
+  .main-button a {
+    color: var(--color-white);
+  }
 }

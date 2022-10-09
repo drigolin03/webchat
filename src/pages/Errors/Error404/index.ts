@@ -1,6 +1,6 @@
-import Block from "../../../utils/Block";
-import template from "./error404.pug";
-import "../styles.css";
+import Block from '../../../utils/Block';
+import template from './error404.pug';
+import '../styles.css';
 
 interface Error404Props {
   title: string;
@@ -12,6 +12,6 @@ export class Error404 extends Block {
   }
 
   render() {
-    return this.compile(template, { ...this.props });
+    return this.compile(template, {...this.props});
   }
 }

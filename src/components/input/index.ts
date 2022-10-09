@@ -1,9 +1,9 @@
-import Block from "../../utils/Block";
-import { ValidationSettings } from "../../utils/Validation";
-import { ErrorMessage } from "../ErrorMessage";
-import { InputField } from "../InputField";
-import template from "./input.pug";
-import "./styles.css";
+import Block from '../../utils/Block';
+import {ValidationSettings} from '../../utils/Validation';
+import {ErrorMessage} from '../ErrorMessage';
+import {InputField} from '../InputField';
+import template from './input.pug';
+import './styles.css';
 
 interface InputProps {
   label: string;
@@ -31,7 +31,7 @@ export class Input extends Block {
 
   init() {
     this.children.errorMessage = new ErrorMessage({
-      errorMessage: "",
+      errorMessage: '',
     });
     this.children.inputField = new InputField({
       idInput: this.props.idInput,
@@ -52,18 +52,19 @@ export class Input extends Block {
     if (val === undefined) {
       val = this.children.inputField.props.valueInput;
     }
+
     const validationSettings = ValidationSettings(valId);
-    const regIn = new RegExp(validationSettings[1], "i");
+    const regIn = new RegExp(validationSettings[1], 'i');
     const isValid = regIn.test(val);
     const inputClasses = this.children.inputField.props.classes;
-    const arrClasses = inputClasses.split(" ");
+    const arrClasses = inputClasses.split(' ');
     if (!isValid) {
       this.children.errorMessage.setProps({
         errorMessage: validationSettings[0],
       });
-      if (!(arrClasses.indexOf("field__input_error") > 0)) {
+      if (!(arrClasses.indexOf('field__input_error') > 0)) {
         this.children.inputField.setProps({
-          classes: inputClasses + " field__input_error",
+          classes: inputClasses + ' field__input_error',
           valueInput: val,
         });
       } else {
@@ -73,15 +74,16 @@ export class Input extends Block {
         });
       }
     } else {
-      this.children.errorMessage.setProps({ errorMessage: "" });
+      this.children.errorMessage.setProps({errorMessage: ''});
       const strClasses = arrClasses
-        .filter((val) => val != "field__input_error")
-        .join(" ");
+        .filter(val => val != 'field__input_error')
+        .join(' ');
       this.children.inputField.setProps({
         classes: strClasses,
         valueInput: val,
       });
     }
+
     return isValid;
   }
 
