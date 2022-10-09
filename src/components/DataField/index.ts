@@ -1,6 +1,6 @@
-import Block from '../../utils/Block';
-import template from './dataField.pug';
-import './styles.css';
+import Block from "../../utils/Block";
+import template from "./dataField.pug";
+import "./styles.css";
 
 interface DataFieldProps {
   label: string;
@@ -9,7 +9,7 @@ interface DataFieldProps {
   events?: {
     click: () => void;
   };
-  classes?: string;
+  classes?: string[];
   name?: string | Block;
   value?: string;
   fieldName?: Block;
