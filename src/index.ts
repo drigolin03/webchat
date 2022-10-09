@@ -1,35 +1,19 @@
-import { pageError404 } from "./pages/Errors/Error404/error404";
-import { pageError500 } from "./pages/Errors/Error500/error500";
-import { pageSignIn } from "./pages/SignIn/signIn";
-import { pageSignUp } from "./pages/SignUp/signUp";
-import { pageProfile } from "./pages/Profile/profile";
-import { changePassword } from "./pages/Profile/ChangePassword/changePassword";
-import { changeUserData } from "./pages/Profile/ChangeUserData/changeUserData";
-import { pageChat } from "./pages/Chat/chat";
+import { Error404 } from "./pages/Errors/Error404";
+import { Error500 } from "./pages/Errors/Error500";
+import { SignIn } from "./pages/SignIn";
+import { SignUp } from "./pages/SignUp";
+import { Profile } from "./pages/Profile";
+import { ChangePassword } from "./pages/Profile/ChangePassword";
+import { ChangeUserData } from "./pages/Profile/ChangeUserData";
+import { Chat } from "./pages/Chat";
+import Block from "./utils/Block";
 
-function funPageSignIn() {
-  pageSignIn();
-}
-function funPageSignUp() {
-  pageSignUp();
-}
-function funPageProfile() {
-  pageProfile();
-}
-function funPageProfileChangeUser() {
-  changeUserData();
-}
-function funPageProfileChangePassword() {
-  changePassword();
-}
-function funpageError404() {
-  pageError404();
-}
-function funpageError500() {
-  pageError500();
-}
-function funPageChat() {
-  pageChat();
+// TODO: page types
+export function renderPage(selector: string, page: any) {
+  const root = document.querySelector(selector)!;
+
+  root.innerHTML = "";
+  root.append(page.getContent()!);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -38,28 +22,29 @@ window.addEventListener("DOMContentLoaded", () => {
     case "/":
       break;
     case "/auth":
-      funPageSignIn();
+      renderPage("#app", new SignIn({ title: "Вход" }));
       break;
     case "/registration":
-      funPageSignUp();
+      renderPage("#app", new SignUp({ title: "Регистрация" }));
       break;
     case "/profile":
-      funPageProfile();
+      renderPage("#app", new Profile({ title: "Иван" }));
       break;
     case "/change-user-data":
-      funPageProfileChangeUser();
+      // funPageProfileChangeUser();
+      renderPage("#app", new ChangeUserData({ title: "" }));
       break;
     case "/change-password":
-      funPageProfileChangePassword();
+      renderPage("#app", new ChangePassword({ title: "" }));
       break;
     case "/404":
-      funpageError404();
+      renderPage("#app", new Error404({ title: "404" }));
       break;
     case "/500":
-      funpageError500();
+      renderPage("#app", new Error500({ title: "500" }));
       break;
     case "/chat":
-      funPageChat();
+      renderPage("#app", new Chat({ title: "" }));
       break;
   }
 });

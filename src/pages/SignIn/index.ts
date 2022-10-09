@@ -2,11 +2,12 @@ import Block from "../../utils/Block";
 import template from "./sign-in.pug";
 import { Button } from "../../components/button";
 import { Input } from "../../components/input";
+import { INPUT_ERROR } from "../../components/input";
 import "./styles.css";
 
 interface SignInProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];
@@ -25,14 +26,14 @@ export class SignIn extends Block {
         label: "Логин",
         idInput: "login",
         type: "text",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[0].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -40,14 +41,14 @@ export class SignIn extends Block {
         label: "Пароль",
         idInput: "password",
         type: "password",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[1].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -75,7 +76,8 @@ export class SignIn extends Block {
             }
           },
         },
-        classes: "button main__button",
+        url: "",
+        classes: "button main-button",
         type: "submit",
       }),
     ];

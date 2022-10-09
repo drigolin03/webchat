@@ -2,11 +2,12 @@ import Block from "../../utils/Block";
 import template from "./signUp.pug";
 import { Button } from "../../components/button";
 import { Input } from "../../components/input";
+import { INPUT_ERROR } from "../../components/input";
 import "./styles.css";
 
 interface SignUpProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];
@@ -25,15 +26,15 @@ export class SignUp extends Block {
         label: "Почта",
         idInput: "email",
         type: "text",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
-          click: () => {},
+          click() {},
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[0].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -41,14 +42,14 @@ export class SignUp extends Block {
         label: "Логин",
         idInput: "login",
         type: "text",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[1].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -56,14 +57,14 @@ export class SignUp extends Block {
         label: "Имя",
         idInput: "first_name",
         type: "text",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[2].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -71,14 +72,14 @@ export class SignUp extends Block {
         label: "Фамилия",
         idInput: "second_name",
         type: "text",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[3].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -86,14 +87,14 @@ export class SignUp extends Block {
         label: "Телефон",
         idInput: "phone",
         type: "text",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[4].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -101,14 +102,14 @@ export class SignUp extends Block {
         label: "Пароль",
         idInput: "password",
         type: "password",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[5].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -116,14 +117,14 @@ export class SignUp extends Block {
         label: "Пароль (еще раз)",
         idInput: "passwordYet",
         type: "password",
-        classes: "field",
+        classes: ["field"],
         inputClasses: "input",
         events: {
           focusin: () => {
             const loginL = document.querySelector(
               `#${this.children.fields[6].props.idInput}`
             );
-            loginL?.classList.remove("field__input_error");
+            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -170,7 +171,8 @@ export class SignUp extends Block {
             }
           },
         },
-        classes: "button main__button",
+        url: "",
+        classes: "button main-button",
         type: "submit",
       }),
     ];

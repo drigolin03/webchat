@@ -1,6 +1,6 @@
 @import "../../main.css";
 @import "../../components/InputField/styles.css";
 
-.main__button a {
-	color: var(--color-white);
+.main-button a {
+  color: var(--color-white);
 }

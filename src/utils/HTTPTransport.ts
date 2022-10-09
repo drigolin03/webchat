@@ -1,53 +1,51 @@
-enum Methods {
-  GET = 'GET',
-  POST = 'POST',
-  PUT = 'PUT',
-  DELETE = 'DELETE',
-}
+type Methods = "GET" | "POST" | "PUT" | "DELETE";
 
 type TRequestData = Record<string, string | number>;
 
 export type TRequestOptions = {
-  method?: Methods
-  headers?: Record<string, string>
-  timeout?: number
-  data?: unknown
+  method?: Methods;
+  headers?: Record<string, string>;
+  timeout?: number;
+  data?: unknown;
 };
 
 function queryStringify(data: TRequestData) {
-  if (typeof data !== 'object') {
-    throw new Error('Data must be object');
+  if (typeof data !== "object") {
+    throw new Error("Data must be object");
   }
 
-  const keys = Object.keys(data);
-  return keys.reduce((result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
+  const entries = Object.entries(data);
+
+  return "?" + entries.map(([key, value]) => `${key}=${value}`).join("&");
 }
 
 export class HTTPTransport {
-  public get = (url: string, options: TRequestOptions = {}): Promise<XMLHttpRequest> => {
-    if (!!options.data) {
+  public get = (
+    url: string,
+    options: TRequestOptions = {}
+  ): Promise<XMLHttpRequest> => {
+    if (options.data) {
       url = `${url}${queryStringify(options.data as TRequestData)}`;
     }
-    return this.request(url, { ...options, method: Methods.GET });
+
+    return this.request(url, { ...options, method: "GET" });
   };
 
-  public post = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: Methods.POST });
+  public post = (url: string, options = {}): Promise<XMLHttpRequest> =>
+    this.request(url, { ...options, method: "POST" });
 
-  public put = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: Methods.PUT });
+  public put = (url: string, options = {}): Promise<XMLHttpRequest> =>
+    this.request(url, { ...options, method: "PUT" });
 
-  public delete = (url: string, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: Methods.DELETE });
+  public delete = (url: string, options = {}): Promise<XMLHttpRequest> =>
+    this.request(url, { ...options, method: "DELETE" });
 
-  request = (url: string, options: TRequestOptions = {}): any => {
-    const {
-      headers = {},
-      method = Methods.GET,
-      data,
-      timeout = 5000,
-    } = options;
+  request = (url: string, options: TRequestOptions = {}): Promise<unknown> => {
+    const { headers = {}, method = "GET", data, timeout = 5000 } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
-        reject('No method');
+        reject("No method");
         return;
       }
 

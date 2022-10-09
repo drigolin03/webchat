@@ -8,15 +8,12 @@ interface ButtonProps {
     click: () => void;
   };
   classes?: string;
-  url?: string;
-  type?: string;
+  url: string;
+  type?: "button" | "submit";
 }
 
 export class Button extends Block {
   constructor(props: ButtonProps) {
-    if (props.url === undefined) {
-      props.url = "";
-    }
     super(props);
   }
 

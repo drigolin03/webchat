@@ -5,6 +5,8 @@ import { InputField } from "../InputField";
 import template from "./input.pug";
 import "./styles.css";
 
+export const INPUT_ERROR = "field__input_error";
+
 interface InputProps {
   label: string;
   idInput?: string;
@@ -14,7 +16,7 @@ interface InputProps {
     focusin?: () => void;
     focusout?: (env: Event) => void;
   };
-  classes?: string;
+  classes?: string[];
   inputClasses?: string;
   valueInput?: string;
   errorMessage?: string;
@@ -40,7 +42,7 @@ export class Input extends Block {
       classes: this.props.inputClasses,
       valueInput: this.props.valueInput,
       placeholderInput: this.props.placeholderInput,
-      funBlur: (env: FocusEvent) => {
+      onBlur: (env: FocusEvent) => {
         const val = (env.target as HTMLInputElement).value;
         const valId = (env.target as HTMLInputElement).id;
         this.onValidate(val, valId);
@@ -52,6 +54,7 @@ export class Input extends Block {
     if (val === undefined) {
       val = this.children.inputField.props.valueInput;
     }
+
     const validationSettings = ValidationSettings(valId);
     const regIn = new RegExp(validationSettings[1], "i");
     const isValid = regIn.test(val);
@@ -61,9 +64,9 @@ export class Input extends Block {
       this.children.errorMessage.setProps({
         errorMessage: validationSettings[0],
       });
-      if (!(arrClasses.indexOf("field__input_error") > 0)) {
+      if (!(arrClasses.indexOf(INPUT_ERROR) > 0)) {
         this.children.inputField.setProps({
-          classes: inputClasses + " field__input_error",
+          classes: inputClasses.push(INPUT_ERROR),
           valueInput: val,
         });
       } else {
@@ -75,13 +78,14 @@ export class Input extends Block {
     } else {
       this.children.errorMessage.setProps({ errorMessage: "" });
       const strClasses = arrClasses
-        .filter((val) => val != "field__input_error")
+        .filter((val) => val != INPUT_ERROR)
         .join(" ");
       this.children.inputField.setProps({
         classes: strClasses,
         valueInput: val,
       });
     }
+
     return isValid;
   }
 

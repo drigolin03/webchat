@@ -7,7 +7,7 @@ import changeAvatar from "../../../assets/img/changeAvatar.png";
 
 interface ChangeUserDataProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];
@@ -25,7 +25,7 @@ export class ChangeUserData extends Block {
       new DataField({
         label: "Поле",
         name: "Почта",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "email",
@@ -37,7 +37,7 @@ export class ChangeUserData extends Block {
       new DataField({
         label: "Поле",
         name: "Логин",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "login",
@@ -49,7 +49,7 @@ export class ChangeUserData extends Block {
       new DataField({
         label: "Поле",
         name: "Имя",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "first_name",
@@ -61,7 +61,7 @@ export class ChangeUserData extends Block {
       new DataField({
         label: "Поле",
         name: "Фамилия",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "second_name",
@@ -73,7 +73,7 @@ export class ChangeUserData extends Block {
       new DataField({
         label: "Поле",
         name: "Имя в чате",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "display_name",
@@ -85,7 +85,7 @@ export class ChangeUserData extends Block {
       new DataField({
         label: "Поле",
         name: "Телефон",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "phone",
@@ -102,7 +102,7 @@ export class ChangeUserData extends Block {
       events: {
         click: () => console.log("clicked!"),
       },
-      classes: "button main__button",
+      classes: "button main-button",
       url: "/profile",
     });
   }

@@ -1,12 +1,12 @@
-import { nanoid } from 'nanoid';
-import { EventBus } from './EventBus';
+import { nanoid } from "nanoid";
+import { EventBus } from "./EventBus";
 
 class Block {
   static EVENTS = {
-    INIT: 'init',
-    FLOW_CDM: 'flow:component-did-mount',
-    FLOW_CDU: 'flow:component-did-update',
-    FLOW_RENDER: 'flow:render',
+    INIT: "init",
+    FLOW_CDM: "flow:component-did-mount",
+    FLOW_CDU: "flow:component-did-update",
+    FLOW_RENDER: "flow:render",
   };
 
   public _id = nanoid(6);
@@ -22,7 +22,7 @@ class Block {
   protected children: Record<string, Block> | Record<string, Block[]>;
 
   /** JSDoc
-   * 
+   *
    * @param {Object} propsWithChildren
    *
    * @returns {void}
@@ -75,8 +75,7 @@ class Block {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  private _createResources() {
-  }
+  private _createResources() {}
 
   private _init() {
     this._createResources();
@@ -86,16 +85,14 @@ class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  init() {
-
-  }
+  init() {}
 
   private _componentDidMount() {
     this.componentDidMount();
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  componentDidMount() { }
+  componentDidMount() {}
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -119,7 +116,6 @@ class Block {
 
     Object.assign(this.props, nextProps);
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
-
   };
 
   get element() {
@@ -151,7 +147,9 @@ class Block {
           if (!contextAndStubs[name]) {
             contextAndStubs[name] = `<div data-id='${val._id}'></div>`;
           } else {
-            contextAndStubs[name] = `${contextAndStubs[name]}<div data-id='${val._id}'></div>`;
+            contextAndStubs[
+              name
+            ] = `${contextAndStubs[name]}<div data-id='${val._id}'></div>`;
           }
         });
         return;
@@ -162,7 +160,7 @@ class Block {
 
     const html = template(contextAndStubs);
 
-    const temp = document.createElement('template');
+    const temp = document.createElement("template");
 
     temp.innerHTML = html;
 
@@ -174,6 +172,7 @@ class Block {
           if (!stub) {
             return;
           }
+
           stub.replaceWith(val.getContent()!);
         });
       } else {
@@ -181,6 +180,7 @@ class Block {
         if (!stub) {
           return;
         }
+
         stub.replaceWith(component.getContent()!);
       }
     });
@@ -198,9 +198,9 @@ class Block {
 
   private _makePropsProxy(props: any) {
     return new Proxy(props, {
-      get: (target, prop) => {
+      get(target, prop) {
         const value = target[prop];
-        return typeof value === 'function' ? value.bind(target) : value;
+        return typeof value === "function" ? value.bind(target) : value;
       },
       set: (target, prop, value) => {
         const oldTarget = { ...target };
@@ -209,8 +209,8 @@ class Block {
         this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
-      deleteProperty: () => {
-        throw new Error('Нет доступа');
+      deleteProperty() {
+        throw new Error("Нет доступа");
       },
     });
   }
@@ -220,15 +220,17 @@ class Block {
   }
 
   show() {
-    this.getContent()!.style.display = 'block';
+    this.getContent()!.style.display = "block";
   }
 
   hide() {
-    this.getContent()!.style.display = 'none';
+    this.getContent()!.style.display = "none";
   }
 
   private _addEvents() {
-    const { events = {} } = this.props as { events: Record<string, () => void> };
+    const { events = {} } = this.props as {
+      events: Record<string, () => void>;
+    };
 
     Object.keys(events).forEach((eventName) => {
       this._element?.addEventListener(eventName, events[eventName]);
@@ -236,18 +238,21 @@ class Block {
   }
 
   private _addClass() {
-    const { classes = '' } = this.props as { classes: string };
+    const { classes = "" } = this.props as { classes: string };
     if (!classes) {
       return;
     }
-    const arr = classes.split(' ');
+
+    const arr = classes.split(" ");
     arr.forEach((className) => {
       this._element!.classList.add(className);
     });
   }
 
   private _removeEvents() {
-    const { events = {} } = this.props as { events: Record<string, () => void> };
+    const { events = {} } = this.props as {
+      events: Record<string, () => void>;
+    };
 
     Object.keys(events).forEach((eventName) => {
       this._element!.removeEventListener(eventName, events[eventName]);

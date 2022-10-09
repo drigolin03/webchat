@@ -9,7 +9,7 @@ interface DataFieldProps {
   events?: {
     click: () => void;
   };
-  classes?: string;
+  classes?: string[];
   name?: string | Block;
   value?: string;
   fieldName?: Block;

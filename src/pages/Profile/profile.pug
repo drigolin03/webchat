@@ -1,15 +1,15 @@
 .main
 	.profile
 		.heading 
-			.userAvatar 
+			.user-avatar 
 				img(src=changeAvatar, alt="change avatar")
-			.userName Иван
-		.userInfo 
+			.user-name Иван
+		.user-info 
 			| !{fields}
-		.userActions
-			.changeData
+		.user-actions
+			.change-data
 				a(href="/change-user-data").link Изменить данные
-			.changePassword
+			.change-password
 				a(href="/change-password").link Изменить пароль
 			.logout
 				a(href="/").text-danger Выйти

@@ -7,7 +7,7 @@ import changeAvatar from "../../../assets/img/changeAvatar.png";
 
 interface ChangePasswordProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];
@@ -25,37 +25,37 @@ export class ChangePassword extends Block {
       new DataField({
         label: "Поле",
         name: "Старый пароль",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "oldPassword",
           type: "password",
           valueInput: "password",
-          inputClasses: "info-field__value info-field__value_right",
+          inputClasses: "",
         }),
       }),
       new DataField({
         label: "Поле",
         name: "Новый пароль",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "newPassword",
           type: "password",
           valueInput: "newPassword",
-          inputClasses: "info-field__value info-field__value_right",
+          inputClasses: "",
         }),
       }),
       new DataField({
         label: "Поле",
         name: "Повторите новый пароль",
-        classes: "data",
+        classes: ["data"],
         fieldValue: new Input({
           label: "",
           idInput: "passwordYet",
           type: "password",
           valueInput: "newPassword",
-          inputClasses: "info-field__value info-field__value_right",
+          inputClasses: "",
         }),
       }),
     ];
@@ -66,7 +66,7 @@ export class ChangePassword extends Block {
       events: {
         click: () => console.log("clicked!"),
       },
-      classes: "button main__button",
+      classes: "button main-button",
       url: "/profile",
     });
   }

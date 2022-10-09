@@ -15,7 +15,7 @@ import "./styles.css";
 
 interface ChatProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];
@@ -35,7 +35,7 @@ export class Chat extends Block {
         img: "",
         name: "Андрей",
         text: "Изображение",
-        time: "10:49",
+        time: "10:59",
         newMessage: "2",
         classes: "chat",
       }),
@@ -121,9 +121,9 @@ export class Chat extends Block {
       valueInput: "",
       placeholderInput: "Сообщение",
       events: {
-        click: () => {},
+        click() {},
       },
-      inputClasses: "input send_message",
+      inputClasses: "input send-message",
     });
     this.children.message = message;
   }

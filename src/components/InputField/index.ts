@@ -1,6 +1,7 @@
 import Block from "../../utils/Block";
 import template from "./inputField.pug";
 import "./styles.css";
+
 interface InputFieldProps {
   errorMsg?: string;
   idInput?: string;
@@ -10,22 +11,21 @@ interface InputFieldProps {
     focusin?: () => void;
     focusout?: (env: Event) => void;
   };
-  classes?: string;
-  inputClasses?: string;
+  classes?: string[];
   valueInput?: string;
   errorInput?: string;
   placeholderInput?: string;
   RegExp?: any;
   RegInput?: any;
   name?: string;
-  funBlur?: (env: FocusEvent) => void;
+  onBlur?: (env: FocusEvent) => void;
 }
 
 export class InputField extends Block {
   constructor(props: InputFieldProps) {
     super(props);
     this.props.events = {
-      blur: this.props.funBlur,
+      blur: this.props.onBlur,
     };
   }
 
@@ -33,7 +33,7 @@ export class InputField extends Block {
     return this.compile(template, {
       idInput: this.props.idInput,
       type: this.props.type,
-      classes: this.props.inputClasses,
+      classes: this.props.classes,
       valueInput: this.props.valueInput,
       errorMsg: this.props.errorMsg,
       placeholderInput: this.props.placeholderInput,

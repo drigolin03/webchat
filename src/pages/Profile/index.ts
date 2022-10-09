@@ -6,7 +6,7 @@ import changeAvatar from "../../assets/img/changeAvatar.png";
 
 interface ProfileProps {
   title: string;
-  classes?: string;
+  classes?: string[];
   url?: string;
   children?: {
     fields: Block[];
@@ -25,37 +25,37 @@ export class Profile extends Block {
         label: "Поле",
         name: "Почта",
         value: "pochta@yandex.ru",
-        classes: "data",
+        classes: ["data"],
       }),
       new DataField({
         label: "Поле",
         name: "Логин",
         value: "ivanivanov",
-        classes: "data",
+        classes: ["data"],
       }),
       new DataField({
         label: "Поле",
         name: "Имя",
         value: "Иван",
-        classes: "data",
+        classes: ["data"],
       }),
       new DataField({
         label: "Поле",
         name: "Фамилия",
         value: "Иванов",
-        classes: "data",
+        classes: ["data"],
       }),
       new DataField({
         label: "Поле",
         name: "Имя в чате",
         value: "Иван",
-        classes: "data",
+        classes: ["data"],
       }),
       new DataField({
         label: "Поле",
         name: "Телефон",
         value: "+7 (909) 967 30 30",
-        classes: "data",
+        classes: ["data"],
       }),
     ];
     this.children.fields = fields;
