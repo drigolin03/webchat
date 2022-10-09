@@ -14,7 +14,7 @@ interface InputProps {
     focusin?: () => void;
     focusout?: (env: Event) => void;
   };
-  classes?: string;
+  classes?: string[];
   inputClasses?: string;
   valueInput?: string;
   errorMessage?: string;
@@ -64,7 +64,7 @@ export class Input extends Block {
       });
       if (!(arrClasses.indexOf("field__input_error") > 0)) {
         this.children.inputField.setProps({
-          classes: inputClasses + " field__input_error",
+          classes: inputClasses.push(" field__input_error"),
           valueInput: val,
         });
       } else {
