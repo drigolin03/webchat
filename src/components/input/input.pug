@@ -1,5 +1,14 @@
-.field
-	|	!{inputField}
-	label.field__label(for=idInput)=label
-	.field-error
-		| !{errorMessage}
+.input-field
+	label(
+		class=`${className}`
+		for=id
+	).label=label
+	input(
+		type=type
+		class=`${className}`
+		name=id
+		id=id
+		).input
+	span(
+		class=`${className}`
+	).error-message= errorMessage

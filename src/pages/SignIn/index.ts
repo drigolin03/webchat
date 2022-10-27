@@ -1,8 +1,11 @@
 import Block from "../../utils/Block";
 import template from "./sign-in.pug";
-import { Button } from "../../components/button";
-import { Input } from "../../components/input";
-import { INPUT_ERROR } from "../../components/input";
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
+import Validator, {
+  ValidationType,
+  ErrorMessages,
+} from "../../utils/Validation";
 import "./styles.css";
 
 interface SignInProps {
@@ -15,6 +18,12 @@ interface SignInProps {
   };
 }
 
+const validator = (currentField: any, type: ValidationType, value: any) => {
+  currentField.style.display = Validator.validate(type, value)
+    ? "none"
+    : "block";
+};
+
 export class SignIn extends Block {
   constructor(props: SignInProps) {
     super(props);
@@ -23,32 +32,37 @@ export class SignIn extends Block {
   init() {
     const fields = [
       new Input({
+        className: "login",
         label: "Логин",
-        idInput: "login",
-        type: "text",
-        classes: ["field"],
-        inputClasses: "input",
+        id: "login",
+        type: ValidationType.Login,
+        errorMessage: ErrorMessages.Login_error,
         events: {
-          focusin: () => {
-            const loginL = document.querySelector(
-              `#${this.children.fields[0].props.idInput}`
+          focusout: (event) => {
+            const currentField = this.children.fields[0]._element.children[2];
+            console.log(event.target.value);
+            return validator(
+              currentField,
+              ValidationType.Login,
+              event.target.value
             );
-            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
       new Input({
+        className: "password",
         label: "Пароль",
-        idInput: "password",
-        type: "password",
-        classes: ["field"],
-        inputClasses: "input",
+        id: "password",
+        errorMessage: ErrorMessages.Password_error,
         events: {
-          focusin: () => {
-            const loginL = document.querySelector(
-              `#${this.children.fields[1].props.idInput}`
+          focusout: (event) => {
+            const currentField = this.children.fields[1]._element.children[2];
+            console.log(event.target.value);
+            return validator(
+              currentField,
+              ValidationType.Password,
+              event.target.value
             );
-            loginL?.classList.remove(INPUT_ERROR);
           },
         },
       }),
@@ -58,24 +72,6 @@ export class SignIn extends Block {
     const buttons = [
       new Button({
         label: "Войти",
-        events: {
-          click: () => {
-            event.preventDefault();
-            const valid = this.children.fields.reduce((acc, val) => {
-              const result = val.onValidate();
-              return acc && result;
-            }, true);
-            const logLog = document.querySelector(
-              `#${this.children.fields[0].props.idInput}`
-            )!.value;
-            const logPass = document.querySelector(
-              `#${this.children.fields[1].props.idInput}`
-            )!.value;
-            if (valid) {
-              console.log({ login: logLog, password: logPass });
-            }
-          },
-        },
         url: "",
         classes: "button main-button",
         type: "submit",
@@ -83,7 +79,6 @@ export class SignIn extends Block {
     ];
     this.children.actions = buttons;
   }
-
   render() {
     return this.compile(template, { title: this.props.title });
   }

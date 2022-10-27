@@ -75,24 +75,16 @@ class Block {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  private _createResources() {}
-
   private _init() {
-    this._createResources();
-
     this.init();
-
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
   init() {}
 
   private _componentDidMount() {
-    this.componentDidMount();
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
-
-  componentDidMount() {}
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -138,18 +130,22 @@ class Block {
     this._addClass();
   }
 
+  protected render(): DocumentFragment {
+    return new DocumentFragment();
+  }
+
   protected compile(template: (context: any) => string, context: any) {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
-        component.forEach((val) => {
+        component.forEach((value) => {
           if (!contextAndStubs[name]) {
-            contextAndStubs[name] = `<div data-id='${val._id}'></div>`;
+            contextAndStubs[name] = `<div data-id='${value._id}'></div>`;
           } else {
             contextAndStubs[
               name
-            ] = `${contextAndStubs[name]}<div data-id='${val._id}'></div>`;
+            ] = `${contextAndStubs[name]}<div data-id='${value._id}'></div>`;
           }
         });
         return;
@@ -186,10 +182,6 @@ class Block {
     });
 
     return temp.content;
-  }
-
-  protected render(): DocumentFragment {
-    return new DocumentFragment();
   }
 
   getContent() {

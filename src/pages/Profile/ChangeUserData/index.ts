@@ -1,7 +1,7 @@
 import Block from "../../../utils/Block";
 import template from "./changeUserData.pug";
-import { Button } from "../../../components/button";
-import { Input } from "../../../components/input";
+import { Button } from "../../../components/Button";
+import { Input } from "../../../components/Input";
 import { DataField } from "../../../components/DataField";
 import changeAvatar from "../../../assets/img/changeAvatar.png";
 
@@ -28,10 +28,9 @@ export class ChangeUserData extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "email",
+          id: "email",
           type: "text",
           valueInput: "pochta@yandex.ru",
-          inputClasses: "",
         }),
       }),
       new DataField({
@@ -40,10 +39,9 @@ export class ChangeUserData extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "login",
+          id: "login",
           type: "text",
           valueInput: "ivanivanov",
-          inputClasses: "",
         }),
       }),
       new DataField({
@@ -52,10 +50,9 @@ export class ChangeUserData extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "first_name",
+          id: "first_name",
           type: "text",
           valueInput: "Иван",
-          inputClasses: "",
         }),
       }),
       new DataField({
@@ -64,10 +61,9 @@ export class ChangeUserData extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "second_name",
+          id: "second_name",
           type: "text",
           valueInput: "Иванов",
-          inputClasses: "",
         }),
       }),
       new DataField({
@@ -76,10 +72,9 @@ export class ChangeUserData extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "display_name",
+          id: "display_name",
           type: "text",
           valueInput: "Иван",
-          inputClasses: "",
         }),
       }),
       new DataField({
@@ -88,10 +83,9 @@ export class ChangeUserData extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "phone",
+          id: "phone",
           type: "text",
           valueInput: "+7 (909) 967 30 30",
-          inputClasses: "",
         }),
       }),
     ];

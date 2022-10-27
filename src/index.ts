@@ -6,9 +6,7 @@ import { Profile } from "./pages/Profile";
 import { ChangePassword } from "./pages/Profile/ChangePassword";
 import { ChangeUserData } from "./pages/Profile/ChangeUserData";
 import { Chat } from "./pages/Chat";
-import Block from "./utils/Block";
 
-// TODO: page types
 export function renderPage(selector: string, page: any) {
   const root = document.querySelector(selector)!;
 
@@ -31,7 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
       renderPage("#app", new Profile({ title: "Иван" }));
       break;
     case "/change-user-data":
-      // funPageProfileChangeUser();
       renderPage("#app", new ChangeUserData({ title: "" }));
       break;
     case "/change-password":

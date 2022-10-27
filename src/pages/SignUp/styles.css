@@ -1,6 +1,8 @@
 @import "../../main.css";
-@import "../../components/InputField/styles.css";
 
 .main-button a {
-  color: var(--color-white);
+	color: var(--color-white);
+}
+.sign-in__link {
+	text-align: center;
 }

@@ -1,5 +1,5 @@
 import { Dialog } from "../../components/Dialog";
-import { Input } from "../../components/input";
+import { Input } from "../../components/Input";
 import Block from "../../utils/Block";
 import template from "./chat.pug";
 import avatar_stub from "../../assets/img/avatar_stub.png";
@@ -116,14 +116,11 @@ export class Chat extends Block {
 
     const message = new Input({
       label: "",
-      idInput: "message",
-      type: "text",
-      valueInput: "",
-      placeholderInput: "Сообщение",
+      id: "message",
       events: {
         click() {},
       },
-      inputClasses: "input send-message",
+      className: "input send-message",
     });
     this.children.message = message;
   }

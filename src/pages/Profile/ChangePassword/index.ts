@@ -1,9 +1,10 @@
 import Block from "../../../utils/Block";
 import template from "./changePassword.pug";
-import { Button } from "../../../components/button";
-import { Input } from "../../../components/input";
+import { Button } from "../../../components/Button";
+import { Input } from "../../../components/Input";
 import { DataField } from "../../../components/DataField";
 import changeAvatar from "../../../assets/img/changeAvatar.png";
+import { ValidationType } from "../../../utils/Validation";
 
 interface ChangePasswordProps {
   title: string;
@@ -28,10 +29,8 @@ export class ChangePassword extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "oldPassword",
-          type: "password",
-          valueInput: "password",
-          inputClasses: "",
+          id: "oldPassword",
+          type: ValidationType.Password,
         }),
       }),
       new DataField({
@@ -40,10 +39,8 @@ export class ChangePassword extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "newPassword",
-          type: "password",
-          valueInput: "newPassword",
-          inputClasses: "",
+          id: "newPassword",
+          type: ValidationType.Password,
         }),
       }),
       new DataField({
@@ -52,10 +49,8 @@ export class ChangePassword extends Block {
         classes: ["data"],
         fieldValue: new Input({
           label: "",
-          idInput: "passwordYet",
-          type: "password",
-          valueInput: "newPassword",
-          inputClasses: "",
+          id: "password-check",
+          type: ValidationType.Password,
         }),
       }),
     ];
