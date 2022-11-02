@@ -2,10 +2,13 @@ import Block from "../../utils/Block";
 import template from "./sign-in.pug";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { Link } from "../../components/Link";
 import Validator, {
   ValidationType,
   ErrorMessages,
 } from "../../utils/Validation";
+import { SigninData } from "../../api/AuthAPI";
+import AuthController from "../../controllers/AuthController";
 import "./styles.css";
 
 interface SignInProps {
@@ -52,6 +55,7 @@ export class SignIn extends Block {
       new Input({
         className: "password",
         label: "Пароль",
+        type: "password",
         id: "password",
         errorMessage: ErrorMessages.Password_error,
         events: {
@@ -72,14 +76,32 @@ export class SignIn extends Block {
     const buttons = [
       new Button({
         label: "Войти",
-        url: "",
         classes: "button main-button",
-        type: "submit",
+        events: {
+          click: () => this.onSubmit(),
+        },
+        // type: "submit",
+      }),
+      new Link({
+        title: "Нет аккаунта?",
+        to: "/registration",
       }),
     ];
     this.children.actions = buttons;
   }
+  onSubmit() {
+    const values = Object.values(this.children.fields)
+      .filter((child) => child instanceof Input)
+      .map((child) => [
+        child._element.childNodes[1].name,
+        child._element.childNodes[1].value,
+      ]);
+
+    const data = Object.fromEntries(values);
+
+    AuthController.signin(data as SigninData);
+  }
   render() {
-    return this.compile(template, { title: this.props.title });
+    return this.compile(template, { title: "Вход" });
   }
 }

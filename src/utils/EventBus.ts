@@ -9,7 +9,7 @@ export class EventBus {
       this.listeners[event] = [];
     }
 
-    this.listeners[event].push(callback);
+    this.listeners[event]?.push(callback);
   }
 
   off(event: string, callback: () => void): void {
@@ -24,7 +24,8 @@ export class EventBus {
 
   emit(event: string, ...args: unknown[]): void {
     if (!this.listeners[event]) {
-      throw new Error(`Нет события: ${event}`);
+      // throw new Error(`Нет события: ${event}`);
+      return;
     }
 
     this.listeners[event].forEach((listener) => {

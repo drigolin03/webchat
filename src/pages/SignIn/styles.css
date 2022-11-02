@@ -1,19 +1,16 @@
 @import "../../main.css";
 
 .fields {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .actions {
-	flex-direction: column;
-	justify-content: center;
-	display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
 
-	.main-button a {
-		color: var(--color-white);
-	}
-	.sign-up__link {
-		text-align: center;
-	}
+  .main-button a {
+    color: var(--color-white);
+  }
 }

@@ -8,7 +8,7 @@ interface ButtonProps {
     click: () => void;
   };
   classes?: string;
-  url: string;
+  url?: string;
   type?: "button" | "submit";
 }
 

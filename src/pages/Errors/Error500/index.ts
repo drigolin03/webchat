@@ -1,5 +1,6 @@
 import Block from "../../../utils/Block";
 import template from "./error500.pug";
+import { Link } from "../../../components/Link";
 import "../styles.css";
 
 interface Error500Props {
@@ -9,6 +10,13 @@ interface Error500Props {
 export class Error500 extends Block {
   constructor(props: Error500Props) {
     super(props);
+  }
+  init(): void {
+    this.children.back = new Link({
+      title: "Назад к чатам",
+      to: "/chat",
+      classes: "back",
+    });
   }
 
   render() {

@@ -1,0 +1,12 @@
+.messenger 
+    if selectedChat 
+        .messenger__messages
+            each message in messages 
+                |!{message}
+            else
+                |Начните историю переписки!
+        .messenger__footer 
+            |!{input}
+            |!{button}
+    else 
+        |Выберите чат

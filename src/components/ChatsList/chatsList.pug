@@ -1,0 +1,11 @@
+aside.left-panel
+  .profile-link
+    |!{profileLink}
+  .search
+    | Заглушка для поиска
+  if isLoaded 
+    .chat-list
+      each chat in chats
+        |!{chat}
+  else 
+    | L O A D I N G . . . 

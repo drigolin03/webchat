@@ -2,10 +2,13 @@ import Block from "../../utils/Block";
 import template from "./signUp.pug";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { Link } from "../../components/Link";
 import Validator, {
   ValidationType,
   ErrorMessages,
 } from "../../utils/Validation";
+import { SignupData } from "../../api/AuthAPI";
+import AuthController from "../../controllers/AuthController";
 import "./styles.css";
 
 interface SignUpProps {
@@ -142,7 +145,7 @@ export class SignUp extends Block {
       new Input({
         className: "field",
         label: "Пароль (ещё раз)",
-        id: "phone",
+        id: "password",
         type: ValidationType.Password,
         errorMessage: ErrorMessages.Password_error,
         events: {
@@ -163,15 +166,34 @@ export class SignUp extends Block {
     const buttons = [
       new Button({
         label: "Зарегистрироваться",
-        url: "",
         classes: "button main-button",
-        type: "submit",
+        // type: "submit",
+        events: {
+          click: () => this.onSubmit(),
+        },
+      }),
+      new Link({
+        title: "Уже зарегистрированы?",
+        to: "/sign-in",
       }),
     ];
     this.children.actions = buttons;
   }
 
+  onSubmit() {
+    const values = Object.values(this.children.fields)
+      .filter((child) => child instanceof Input)
+      .map((child) => [
+        child._element.childNodes[1].name,
+        child._element.childNodes[1].value,
+      ]);
+
+    const data = Object.fromEntries(values);
+
+    AuthController.signup(data as SignupData);
+  }
+
   render() {
-    return this.compile(template, { title: this.props.title });
+    return this.compile(template, { title: "Регистрация" });
   }
 }
