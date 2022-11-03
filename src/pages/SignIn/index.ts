@@ -32,46 +32,82 @@ export class SignIn extends Block {
     super(props);
   }
 
-  init() {
-    const fields = [
-      new Input({
-        className: "login",
-        label: "Логин",
-        id: "login",
-        type: ValidationType.Login,
-        errorMessage: ErrorMessages.Login_error,
-        events: {
-          focusout: (event) => {
-            const currentField = this.children.fields[0]._element.children[2];
-            console.log(event.target.value);
-            return validator(
-              currentField,
-              ValidationType.Login,
-              event.target.value
-            );
-          },
+  protected init() {
+    this.children.login = new Input({
+      className: "login",
+      label: "Логин",
+      id: "login",
+      type: ValidationType.Login,
+      errorMessage: ErrorMessages.Login_error,
+      events: {
+        focusout: (event) => {
+          const currentField = this.children.fields[0]._element.children[2];
+          console.log(event.target.value);
+          return validator(
+            currentField,
+            ValidationType.Login,
+            event.target.value
+          );
         },
-      }),
-      new Input({
-        className: "password",
-        label: "Пароль",
-        type: "password",
-        id: "password",
-        errorMessage: ErrorMessages.Password_error,
-        events: {
-          focusout: (event) => {
-            const currentField = this.children.fields[1]._element.children[2];
-            console.log(event.target.value);
-            return validator(
-              currentField,
-              ValidationType.Password,
-              event.target.value
-            );
-          },
+      },
+    });
+    this.children.password = new Input({
+      className: "password",
+      label: "Пароль",
+      type: "password",
+      id: "password",
+      errorMessage: ErrorMessages.Password_error,
+      events: {
+        focusout: (event) => {
+          const currentField = this.children.fields[1]._element.children[2];
+          console.log(event.target.value);
+          return validator(
+            currentField,
+            ValidationType.Password,
+            event.target.value
+          );
         },
-      }),
-    ];
-    this.children.fields = fields;
+      },
+    });
+    // const fields = [
+    //   new Input({
+    //     className: "login",
+    //     label: "Логин",
+    //     id: "login",
+    //     type: ValidationType.Login,
+    //     errorMessage: ErrorMessages.Login_error,
+    //     events: {
+    //       focusout: (event) => {
+    //         const currentField = this.children.fields[0]._element.children[2];
+    //         console.log(event.target.value);
+    //         return validator(
+    //           currentField,
+    //           ValidationType.Login,
+    //           event.target.value
+    //         );
+    //       },
+    //     },
+    //   }),
+    //   new Input({
+    //     className: "password",
+    //     label: "Пароль",
+    //     type: "password",
+    //     id: "password",
+    //     errorMessage: ErrorMessages.Password_error,
+    //     events: {
+    //       focusout: (event) => {
+    //         const currentField = this.children.fields[1]._element.children[2];
+    //         console.log(event.target.value);
+    //         return validator(
+    //           currentField,
+    //           ValidationType.Password,
+    //           event.target.value
+    //         );
+    //       },
+    //     },
+    //   }),
+    // ];
+    // this.children.fields = fields;
 
     const buttons = [
       new Button({
@@ -87,7 +123,9 @@ export class SignIn extends Block {
         to: "/registration",
       }),
     ];
+
     this.children.actions = buttons;
+    console.log(this.children.actions);
   }
   onSubmit() {
     const values = Object.values(this.children.fields)
@@ -101,7 +139,7 @@ export class SignIn extends Block {
 
     AuthController.signin(data as SigninData);
   }
-  render() {
+  render(): DocumentFragment {
     return this.compile(template, { title: "Вход" });
   }
 }

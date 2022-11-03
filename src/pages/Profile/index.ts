@@ -26,7 +26,7 @@ export class ProfileBase extends Block {
   }
 
   init() {
-    this.children.fields = [
+    const fields = [
       new DataField({
         name: "Почта",
         value: this.props.email,
@@ -52,6 +52,9 @@ export class ProfileBase extends Block {
         value: this.props.phone,
       }),
     ];
+    console.log(fields);
+
+    this.children.fields = fields;
 
     this.children.actions = [
       new Link({

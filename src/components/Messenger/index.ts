@@ -34,9 +34,8 @@ class MessengerBase extends Block<MessengerProps> {
       events: {
         click: () => {
           const input = this.children.input as Input;
-          const message = input.getValue();
-
-          input.setValue("");
+          const message = input._element.children[1].value;
+          input._element.children[1].value = "";
 
           MessagesController.sendMessage(this.props.selectedChat!, message);
         },
@@ -54,6 +53,8 @@ class MessengerBase extends Block<MessengerProps> {
   }
 
   private createMessages(props: MessengerProps) {
+    console.log(props.messages);
+
     return props.messages.map((data) => {
       return new Message({ ...data, isMine: props.userId === data.user_id });
     });
