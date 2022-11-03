@@ -6,7 +6,7 @@ import store, { StoreEvents, withStore } from "../../utils/Store";
 import AuthController from "../../controllers/AuthController";
 import changeAvatar from "../../assets/img/changeAvatar.png";
 import "./styles.css";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/button";
 
 interface ProfileProps {
   title: string;

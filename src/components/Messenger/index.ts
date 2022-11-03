@@ -2,7 +2,7 @@ import Block from "../../utils/Block";
 import template from "./messenger.pug";
 import { Message } from "../Message";
 import { Input } from "../Input/";
-import { Button } from "../Button";
+import { Button } from "../button";
 import MessagesController, {
   Message as MessageInfo,
 } from "../../controllers/MessagesController";

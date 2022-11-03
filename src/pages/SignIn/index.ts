@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import template from "./sign-in.pug";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/button";
 import { Input } from "../../components/Input";
 import { Link } from "../../components/Link";
 import Validator, {
