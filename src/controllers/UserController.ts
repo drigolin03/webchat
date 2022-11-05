@@ -1,8 +1,4 @@
-import type {
-  FindUserData,
-  UserData,
-  ChangePasswordData,
-} from "../api/UserAPI";
+import type { UserData, ChangePasswordData } from "../api/UserAPI";
 import UserAPI from "../api/UserAPI";
 
 class UsersController {

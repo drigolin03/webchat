@@ -31,7 +31,6 @@ class Validator {
 
   login(value: string): boolean {
     const result = /(?!^\d+$)[A-Za-z0-9_]{3,20}/.test(value);
-    console.log(result);
 
     return result;
   }
@@ -63,10 +62,6 @@ class Validator {
         return this.password(value);
       case ValidationType.Phone:
         return this.phone(value);
-      // default: {
-      //   const exhaustiveCheck: never = type;
-      //   throw new Error(`Значение не должно быть пустым: ${exhaustiveCheck}`);
-      // }
     }
   }
 }

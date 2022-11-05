@@ -27,10 +27,6 @@ export default class UserAPI extends BaseAPI {
     super("/user");
   }
 
-  findUser(data: FindUserData): Promise<unknown> {
-    return this.http.post("/search", data);
-  }
-
   changeUser(data: UserData): Promise<unknown> {
     return this.http.put("/profile", data);
   }

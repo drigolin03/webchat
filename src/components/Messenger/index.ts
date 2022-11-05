@@ -53,8 +53,6 @@ class MessengerBase extends Block<MessengerProps> {
   }
 
   private createMessages(props: MessengerProps) {
-    console.log(props.messages);
-
     return props.messages.map((data) => {
       return new Message({ ...data, isMine: props.userId === data.user_id });
     });

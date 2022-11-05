@@ -52,7 +52,6 @@ export class ProfileBase extends Block {
         value: this.props.phone,
       }),
     ];
-    console.log(fields);
 
     this.children.fields = fields;
 

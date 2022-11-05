@@ -43,7 +43,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[0]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Email,
@@ -61,7 +60,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[1]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Login,
@@ -79,7 +77,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[2]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Name,
@@ -97,7 +94,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[3]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Name,
@@ -115,7 +111,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[4]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Phone,
@@ -133,7 +128,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[5]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Password,
@@ -151,7 +145,6 @@ export class SignUp extends Block {
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[6]._element.children[2];
-            console.log(event.target.value);
             return validator(
               currentField,
               ValidationType.Password,
