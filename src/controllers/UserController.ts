@@ -12,14 +12,6 @@ class UsersController {
     this.api = new UserAPI();
   }
 
-  async findUser(data: FindUserData) {
-    try {
-      await this.api.findUser(data);
-    } catch (error) {
-      return;
-    }
-  }
-
   async user(data: UserData) {
     try {
       await this.api.changeUser(data);

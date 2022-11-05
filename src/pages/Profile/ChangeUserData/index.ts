@@ -87,9 +87,7 @@ export class ChangeUserDataBase extends Block {
         label: "Сохранить",
         events: {
           click: async () => {
-            console.log("clicked!");
             const inputs = document.querySelectorAll(".input");
-            console.log(inputs);
             const data = Array.from(inputs).reduce((acc: any, input) => {
               acc[input.id as keyof UserData] = (
                 input as HTMLInputElement
@@ -99,7 +97,6 @@ export class ChangeUserDataBase extends Block {
               }
               return acc;
             }, {} as Partial<UserData>);
-            console.log(data);
             await UserController.user(data as UserData);
           },
         },
