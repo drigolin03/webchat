@@ -167,7 +167,6 @@ export class SignUp extends Block {
       new Button({
         label: "Зарегистрироваться",
         classes: "button main-button",
-        // type: "submit",
         events: {
           click: () => this.onSubmit(),
         },
