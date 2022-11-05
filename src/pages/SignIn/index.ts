@@ -33,81 +33,81 @@ export class SignIn extends Block {
   }
 
   protected init() {
-    this.children.login = new Input({
-      className: "login",
-      label: "Логин",
-      id: "login",
-      type: ValidationType.Login,
-      errorMessage: ErrorMessages.Login_error,
-      events: {
-        focusout: (event) => {
-          const currentField = this.children.fields[0]._element.children[2];
-          console.log(event.target.value);
-          return validator(
-            currentField,
-            ValidationType.Login,
-            event.target.value
-          );
-        },
-      },
-    });
-    this.children.password = new Input({
-      className: "password",
-      label: "Пароль",
-      type: "password",
-      id: "password",
-      errorMessage: ErrorMessages.Password_error,
-      events: {
-        focusout: (event) => {
-          const currentField = this.children.fields[1]._element.children[2];
-          console.log(event.target.value);
-          return validator(
-            currentField,
-            ValidationType.Password,
-            event.target.value
-          );
-        },
-      },
-    });
-    // const fields = [
-    //   new Input({
-    //     className: "login",
-    //     label: "Логин",
-    //     id: "login",
-    //     type: ValidationType.Login,
-    //     errorMessage: ErrorMessages.Login_error,
-    //     events: {
-    //       focusout: (event) => {
-    //         const currentField = this.children.fields[0]._element.children[2];
-    //         console.log(event.target.value);
-    //         return validator(
-    //           currentField,
-    //           ValidationType.Login,
-    //           event.target.value
-    //         );
-    //       },
+    // this.children.login = new Input({
+    //   className: "login",
+    //   label: "Логин",
+    //   id: "login",
+    //   type: ValidationType.Login,
+    //   errorMessage: ErrorMessages.Login_error,
+    //   events: {
+    //     focusout: (event) => {
+    //       const currentField = this.children.fields[0]._element.children[2];
+    //       console.log(event.target.value);
+    //       return validator(
+    //         currentField,
+    //         ValidationType.Login,
+    //         event.target.value
+    //       );
     //     },
-    //   }),
-    //   new Input({
-    //     className: "password",
-    //     label: "Пароль",
-    //     type: "password",
-    //     id: "password",
-    //     errorMessage: ErrorMessages.Password_error,
-    //     events: {
-    //       focusout: (event) => {
-    //         const currentField = this.children.fields[1]._element.children[2];
-    //         console.log(event.target.value);
-    //         return validator(
-    //           currentField,
-    //           ValidationType.Password,
-    //           event.target.value
-    //         );
-    //       },
+    //   },
+    // });
+    // this.children.password = new Input({
+    //   className: "password",
+    //   label: "Пароль",
+    //   type: "password",
+    //   id: "password",
+    //   errorMessage: ErrorMessages.Password_error,
+    //   events: {
+    //     focusout: (event) => {
+    //       const currentField = this.children.fields[1]._element.children[2];
+    //       console.log(event.target.value);
+    //       return validator(
+    //         currentField,
+    //         ValidationType.Password,
+    //         event.target.value
+    //       );
     //     },
-    //   }),
-    // ];
-    // this.children.fields = fields;
+    //   },
+    // });
+    const fields = [
+      new Input({
+        className: "login",
+        label: "Логин",
+        id: "login",
+        type: ValidationType.Login,
+        errorMessage: ErrorMessages.Login_error,
+        events: {
+          focusout: (event) => {
+            const currentField = this.children.fields[0]._element.children[2];
+            console.log(event.target.value);
+            return validator(
+              currentField,
+              ValidationType.Login,
+              event.target.value
+            );
+          },
+        },
+      }),
+      new Input({
+        className: "password",
+        label: "Пароль",
+        type: "password",
+        id: "password",
+        errorMessage: ErrorMessages.Password_error,
+        events: {
+          focusout: (event) => {
+            const currentField = this.children.fields[1]._element.children[2];
+            console.log(event.target.value);
+            return validator(
+              currentField,
+              ValidationType.Password,
+              event.target.value
+            );
+          },
+        },
+      }),
+    ];
+    this.children.fields = fields;
 
     const buttons = [
       new Button({
@@ -128,6 +128,17 @@ export class SignIn extends Block {
     console.log(this.children.actions);
   }
   onSubmit() {
+    // const login = [
+    //   this.children.login._element.childNodes[1].name,
+    //   this.children.login._element.childNodes[1].value,
+    // ];
+    // const password = [
+    //   this.children.password._element.childNodes[1].name,
+    //   this.children.password._element.childNodes[1].value,
+    // ];
+    // const result = [login, password];
+    // Object.fromEntires(result) - 149
+
     const values = Object.values(this.children.fields)
       .filter((child) => child instanceof Input)
       .map((child) => [
