@@ -6,7 +6,7 @@ import { ChatInfo } from "../../api/ChatsAPI";
 import ChatsController from "../../controllers/ChatsController";
 import { Link } from "../Link";
 import "./styles.css";
-import { Button } from "../button";
+import { Button } from "../Button";
 import { Input } from "../Input";
 
 interface ChatsListProps {

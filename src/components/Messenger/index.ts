@@ -2,7 +2,7 @@ import Block from "../../utils/Block";
 import template from "./messenger.pug";
 import { Message } from "../Message";
 import { Input } from "../Input/";
-import { Button } from "../button";
+import { Button } from "../Button";
 import MessagesController, {
   Message as MessageInfo,
 } from "../../controllers/MessagesController";
@@ -29,8 +29,6 @@ class MessengerBase extends Block<MessengerProps> {
       events: {
         click: async () => {
           const chatId = this.props.selectedChat;
-          // console.log(chatId);
-
           await ChatsController.delete(chatId);
         },
       },

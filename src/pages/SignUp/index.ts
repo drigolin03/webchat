@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import template from "./signUp.pug";
-import { Button } from "../../components/button";
+import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Link } from "../../components/Link";
 import Validator, {
@@ -14,11 +14,6 @@ import "./styles.css";
 interface SignUpProps {
   title: string;
   classes?: string[];
-  url?: string;
-  children?: {
-    fields: Block[];
-    footer: Block[];
-  };
 }
 
 const validator = (currentField: any, type: ValidationType, value: any) => {
@@ -38,16 +33,12 @@ export class SignUp extends Block {
         className: "field",
         label: "Почта",
         id: "email",
-        type: ValidationType.Email,
+        type: "email",
         errorMessage: ErrorMessages.Email_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[0]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Email,
-              event.target.value
-            );
+            return validator(currentField, "email", event.target.value);
           },
         },
       }),
@@ -55,16 +46,12 @@ export class SignUp extends Block {
         className: "field",
         label: "Логин",
         id: "login",
-        type: ValidationType.Login,
+        type: "login",
         errorMessage: ErrorMessages.Login_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[1]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Login,
-              event.target.value
-            );
+            return validator(currentField, "login", event.target.value);
           },
         },
       }),
@@ -72,16 +59,12 @@ export class SignUp extends Block {
         className: "field",
         label: "Имя",
         id: "first_name",
-        type: ValidationType.Name,
+        type: "name",
         errorMessage: ErrorMessages.Name_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[2]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Name,
-              event.target.value
-            );
+            return validator(currentField, "name", event.target.value);
           },
         },
       }),
@@ -89,16 +72,12 @@ export class SignUp extends Block {
         className: "field",
         label: "Фамилия",
         id: "second_name",
-        type: ValidationType.Name,
+        type: "name",
         errorMessage: ErrorMessages.Name_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[3]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Name,
-              event.target.value
-            );
+            return validator(currentField, "name", event.target.value);
           },
         },
       }),
@@ -106,16 +85,12 @@ export class SignUp extends Block {
         className: "field",
         label: "Телефон",
         id: "phone",
-        type: ValidationType.Phone,
+        type: "phone",
         errorMessage: ErrorMessages.Phone_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[4]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Phone,
-              event.target.value
-            );
+            return validator(currentField, "phone", event.target.value);
           },
         },
       }),
@@ -123,33 +98,25 @@ export class SignUp extends Block {
         className: "field",
         label: "Пароль",
         id: "password",
-        type: ValidationType.Password,
+        type: "password",
         errorMessage: ErrorMessages.Password_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[5]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Password,
-              event.target.value
-            );
+            return validator(currentField, "password", event.target.value);
           },
         },
       }),
       new Input({
         className: "field",
         label: "Пароль (ещё раз)",
-        id: "password",
-        type: ValidationType.Password,
+        id: "check-password",
+        type: "password",
         errorMessage: ErrorMessages.Password_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[6]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Password,
-              event.target.value
-            );
+            return validator(currentField, "password", event.target.value);
           },
         },
       }),

@@ -1,27 +1,18 @@
 import Block from "../../../utils/Block";
 import template from "./changePassword.pug";
-import { Button } from "../../../components/button";
+import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
 import { DataField } from "../../../components/DataField";
 import { ValidationType } from "../../../utils/Validation";
 import { Link } from "../../../components/Link";
 import { ChangePasswordData } from "../../../api/UserAPI";
+import router from "../../../utils/Router";
 import UserController from "../../../controllers/UserController";
 import changeAvatar from "../../../assets/img/changeAvatar.png";
 
-interface ChangePasswordProps {
-  title: string;
-  classes?: string[];
-  url?: string;
-  children?: {
-    fields: Block[];
-    footer: Block[];
-  };
-}
-
 export class ChangePassword extends Block {
-  constructor(props: ChangePasswordProps) {
-    super(props);
+  constructor() {
+    super({});
   }
 
   init() {
@@ -72,6 +63,7 @@ export class ChangePassword extends Block {
               return acc;
             }, {} as Partial<ChangePasswordData>);
             await UserController.changePassword(data as ChangePasswordData);
+            router.go("/profile");
           },
         },
         classes: "button main-button",
@@ -84,6 +76,6 @@ export class ChangePassword extends Block {
   }
 
   render() {
-    return this.compile(template, { changeAvatar });
+    return this.compile(template, { title: "Изменить пароль", changeAvatar });
   }
 }

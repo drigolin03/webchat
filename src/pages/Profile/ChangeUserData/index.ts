@@ -1,11 +1,12 @@
 import Block from "../../../utils/Block";
 import template from "./changeUserData.pug";
-import { Button } from "../../../components/button";
+import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
 import { DataField } from "../../../components/DataField";
 import { withStore } from "../../../utils/Store";
 import UserController from "../../../controllers/UserController";
 import { UserData } from "../../../api/UserAPI";
+import router from "../../../utils/Router";
 import changeAvatar from "../../../assets/img/changeAvatar.png";
 import { Link } from "../../../components/Link";
 
@@ -98,6 +99,7 @@ export class ChangeUserDataBase extends Block {
               return acc;
             }, {} as Partial<UserData>);
             await UserController.user(data as UserData);
+            router.go("/profile");
           },
         },
         classes: "button main-button",
@@ -111,6 +113,8 @@ export class ChangeUserDataBase extends Block {
 
   render() {
     return this.compile(template, {
+      title: "Изменить данные",
+      ...this.props,
       display_name: this.props.display_name,
       changeAvatar,
     });

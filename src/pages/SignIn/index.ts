@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import template from "./sign-in.pug";
-import { Button } from "../../components/button";
+import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Link } from "../../components/Link";
 import Validator, {
@@ -38,16 +38,12 @@ export class SignIn extends Block {
         className: "login",
         label: "Логин",
         id: "login",
-        type: ValidationType.Login,
+        type: "login",
         errorMessage: ErrorMessages.Login_error,
         events: {
           focusout: (event) => {
             const currentField = this.children.fields[0]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Login,
-              event.target.value
-            );
+            return validator(currentField, "login", event.target.value);
           },
         },
       }),
@@ -58,13 +54,9 @@ export class SignIn extends Block {
         id: "password",
         errorMessage: ErrorMessages.Password_error,
         events: {
-          focusout: (event) => {
+          focusout: (event: MouseEvent) => {
             const currentField = this.children.fields[1]._element.children[2];
-            return validator(
-              currentField,
-              ValidationType.Password,
-              event.target.value
-            );
+            return validator(currentField, "password", event.target.value);
           },
         },
       }),

@@ -1,7 +1,7 @@
 import Block from "../../utils/Block";
 import template from "./profile.pug";
 import { DataField } from "../../components/DataField";
-import { Button } from "../../components/button";
+import { Button } from "../../components/Button";
 import { Link } from "../../components/Link";
 import store, { StoreEvents, withStore } from "../../utils/Store";
 import AuthController from "../../controllers/AuthController";
