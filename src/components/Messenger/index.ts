@@ -6,6 +6,8 @@ import { Button } from "../button";
 import MessagesController, {
   Message as MessageInfo,
 } from "../../controllers/MessagesController";
+import ChatsController from "../../controllers/ChatsController";
+import { ChatInfo } from "../../api/ChatsAPI";
 import { withStore } from "../../utils/Store";
 import "./styles.css";
 
@@ -24,7 +26,14 @@ class MessengerBase extends Block<MessengerProps> {
 
     this.children.deleteChat = new Button({
       label: "Удалить этот чат",
-      // classes: " button main-button",
+      events: {
+        click: async () => {
+          const chatId = this.props.selectedChat;
+          // console.log(chatId);
+
+          await ChatsController.delete(chatId);
+        },
+      },
     });
 
     this.children.input = new Input({
@@ -35,6 +44,7 @@ class MessengerBase extends Block<MessengerProps> {
     this.children.button = new Button({
       label: "Отправить",
       type: "button",
+      classes: "button",
       events: {
         click: () => {
           const input = this.children.input as Input;
