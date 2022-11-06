@@ -162,23 +162,22 @@ class Block<P extends Record<string, any> = any> {
 
     temp.innerHTML = html;
 
-    const replaceStub = (component: Block) => {
-      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
-
-      if (!stub) {
-        return;
-      }
-
-      component.getContent()?.append(...Array.from(stub.childNodes));
-
-      stub.replaceWith(component.getContent()!);
-    };
-
-    Object.entries(this.children).forEach(([_, component]) => {
+    Object.entries(this.children).forEach(([, component]) => {
+      let stub;
       if (Array.isArray(component)) {
-        component.forEach(replaceStub);
+        component.forEach((val) => {
+          stub = temp.content.querySelector(`[data-id='${val.id}']`);
+          if (!stub) {
+            return;
+          }
+          stub.replaceWith(val.getContent()!);
+        });
       } else {
-        replaceStub(component);
+        stub = temp.content.querySelector(`[data-id='${component.id}']`);
+        if (!stub) {
+          return;
+        }
+        stub.replaceWith(component.getContent()!);
       }
     });
 

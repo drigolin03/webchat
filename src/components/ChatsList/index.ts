@@ -31,11 +31,9 @@ class ChatsListBase extends Block<ChatsListProps> {
       label: "Создать чат",
       events: {
         click: async () => {
-          console.log("123");
           const data = (
             document.querySelector(".create-chat .input") as HTMLInputElement
           ).value;
-          console.log(data);
 
           await ChatsController.create(data);
         },
