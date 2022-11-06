@@ -22,10 +22,14 @@ class MessengerBase extends Block<MessengerProps> {
   protected init() {
     this.children.messages = this.createMessages(this.props);
 
+    this.children.deleteChat = new Button({
+      label: "Удалить этот чат",
+      // classes: " button main-button",
+    });
+
     this.children.input = new Input({
       type: "text",
-      placeholder: "Сообщение",
-      label: "message",
+      label: "Введите сообщение",
     });
 
     this.children.button = new Button({

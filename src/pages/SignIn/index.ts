@@ -17,7 +17,7 @@ interface SignInProps {
   url?: string;
   children?: {
     fields: Block[];
-    footer: Block[];
+    actions: Block[];
   };
 }
 
