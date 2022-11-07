@@ -1,0 +1,15 @@
+.main
+	.profile
+		.heading 
+			.user-avatar 
+				img(src=changeAvatar, alt="change avatar")
+			.user-name Иван
+		.user-info 
+			| !{fields}
+		.user-actions
+			.change-data
+				a(href="/change-user-data").link Изменить данные
+			.change-password
+				a(href="/change-password").link Изменить пароль
+			.logout
+				a(href="/").text-danger Выйти

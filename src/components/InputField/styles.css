@@ -1,0 +1,22 @@
+@import "../../main.css";
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 9;
+    color: var(--color-secondary);
+    order: 1;
+  }
+
+  .input {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    padding: 7px 1px;
+    order: 2;
+  }
+}

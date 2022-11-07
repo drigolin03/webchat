@@ -1,0 +1,10 @@
+li.dialog
+	.avatar
+		img(src= avatar_stub, alt="Аватар")
+	.message
+		.name= name
+		.text= text
+	.info 
+		.time= time
+		if !!newMessage.length 
+			.new-message= newMessage
