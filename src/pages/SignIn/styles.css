@@ -10,6 +10,29 @@
   justify-content: center;
   display: flex;
 
+<<<<<<< HEAD
+=======
+  button {
+    padding: 12px;
+    background-color: var(--color-primary);
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 16px;
+
+    &:hover {
+      background-color: #2e60dd;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+>>>>>>> origin/sprint_3
   .main-button a {
     color: var(--color-white);
   }

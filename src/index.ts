@@ -5,46 +5,58 @@ import { SignUp } from "./pages/SignUp";
 import { Profile } from "./pages/Profile";
 import { ChangePassword } from "./pages/Profile/ChangePassword";
 import { ChangeUserData } from "./pages/Profile/ChangeUserData";
-import { Chat } from "./pages/Chat";
-import Block from "./utils/Block";
+import { MessengerPage } from "./pages/Messenger";
+import store from "./utils/Store";
 
-// TODO: page types
-export function renderPage(selector: string, page: any) {
-  const root = document.querySelector(selector)!;
+import Router from "./utils/Router";
+import AuthController from "./controllers/AuthController";
 
-  root.innerHTML = "";
-  root.append(page.getContent()!);
+window.store = store;
+enum Routes {
+  Index = "/",
+  Signin = "/sign-in",
+  Register = "/registration",
+  Profile = "/profile",
+  ChangePassword = "/change-password",
+  ChangeUserData = "/change-user-data",
+  Messenger = "/messenger",
+  Error404 = "/404",
+  Error500 = "/500",
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  const path = document.location.pathname;
-  switch (path) {
-    case "/":
+window.addEventListener("DOMContentLoaded", async () => {
+  Router.use(Routes.Index, SignIn)
+    .use(Routes.Register, SignUp)
+    .use(Routes.Signin, SignIn)
+    .use(Routes.Profile, Profile)
+    .use(Routes.ChangePassword, ChangePassword)
+    .use(Routes.ChangeUserData, ChangeUserData)
+    .use(Routes.Messenger, MessengerPage)
+    .use(Routes.Error404, Error404)
+    .use(Routes.Error500, Error500);
+
+  let isProtectedRoute = true;
+
+  switch (window.location.pathname) {
+    case Routes.Index:
+    case Routes.Register:
+      isProtectedRoute = false;
       break;
-    case "/auth":
-      renderPage("#app", new SignIn({ title: "Вход" }));
-      break;
-    case "/registration":
-      renderPage("#app", new SignUp({ title: "Регистрация" }));
-      break;
-    case "/profile":
-      renderPage("#app", new Profile({ title: "Иван" }));
-      break;
-    case "/change-user-data":
-      // funPageProfileChangeUser();
-      renderPage("#app", new ChangeUserData({ title: "" }));
-      break;
-    case "/change-password":
-      renderPage("#app", new ChangePassword({ title: "" }));
-      break;
-    case "/404":
-      renderPage("#app", new Error404({ title: "404" }));
-      break;
-    case "/500":
-      renderPage("#app", new Error500({ title: "500" }));
-      break;
-    case "/chat":
-      renderPage("#app", new Chat({ title: "" }));
-      break;
+  }
+
+  try {
+    await AuthController.fetchUser();
+
+    Router.start();
+
+    if (!isProtectedRoute) {
+      Router.go(Routes.Profile);
+    }
+  } catch (e) {
+    Router.start();
+
+    if (isProtectedRoute) {
+      Router.go(Routes.Index);
+    }
   }
 });

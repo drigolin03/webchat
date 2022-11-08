@@ -3,6 +3,7 @@
 		.heading 
 			.user-avatar 
 				img(src=changeAvatar, alt="change avatar")
+<<<<<<< HEAD
 			.user-name Иван
 		.user-info 
 			| !{fields}
@@ -13,3 +14,10 @@
 				a(href="/change-password").link Изменить пароль
 			.logout
 				a(href="/").text-danger Выйти
+=======
+			.user-name= title
+		.user-info 
+			| !{fields}
+		.user-actions
+			| !{actions}
+>>>>>>> origin/sprint_3
