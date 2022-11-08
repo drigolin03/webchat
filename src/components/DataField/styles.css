@@ -1,0 +1,15 @@
+.data {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px #eaeaea solid;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.title {
+  color: var(--color-text);
+}
+
+.value {
+  color: var(--color-secondary);
+}
