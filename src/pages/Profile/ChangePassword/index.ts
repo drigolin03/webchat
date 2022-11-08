@@ -1,25 +1,5 @@
 import Block from "../../../utils/Block";
 import template from "./changePassword.pug";
-<<<<<<< HEAD
-import { Button } from "../../../components/button";
-import { Input } from "../../../components/input";
-import { DataField } from "../../../components/DataField";
-import changeAvatar from "../../../assets/img/changeAvatar.png";
-
-interface ChangePasswordProps {
-  title: string;
-  classes?: string[];
-  url?: string;
-  children?: {
-    fields: Block[];
-    footer: Block[];
-  };
-}
-
-export class ChangePassword extends Block {
-  constructor(props: ChangePasswordProps) {
-    super(props);
-=======
 import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
 import { DataField } from "../../../components/DataField";
@@ -33,7 +13,6 @@ import changeAvatar from "../../../assets/img/changeAvatar.png";
 export class ChangePassword extends Block {
   constructor() {
     super({});
->>>>>>> origin/sprint_3
   }
 
   init() {
