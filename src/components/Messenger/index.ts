@@ -7,7 +7,6 @@ import MessagesController, {
   Message as MessageInfo,
 } from "../../controllers/MessagesController";
 import ChatsController from "../../controllers/ChatsController";
-import { ChatInfo } from "../../api/ChatsAPI";
 import { withStore } from "../../utils/Store";
 import "./styles.css";
 
@@ -29,26 +28,28 @@ class MessengerBase extends Block<MessengerProps> {
       events: {
         click: async () => {
           const chatId = this.props.selectedChat;
-          await ChatsController.delete(chatId);
+          await ChatsController.delete(chatId!);
         },
       },
+      classes: "delete-button",
     });
 
     this.children.input = new Input({
       type: "text",
+      name: "message",
       label: "Введите сообщение",
     });
 
     this.children.button = new Button({
       label: "Отправить",
       type: "button",
-      classes: "button",
+      classes: "button main-button",
       events: {
         click: () => {
           const input = this.children.input as Input;
-          const message = input._element.children[1].value;
-          input._element.children[1].value = "";
+          const message = input.getValue();
 
+          input.setValue("");
           MessagesController.sendMessage(this.props.selectedChat!, message);
         },
       },
@@ -93,4 +94,6 @@ const withSelectedChatMessages = withStore((state) => {
   };
 });
 
-export const Messenger = withSelectedChatMessages(MessengerBase);
+export const Messenger = withSelectedChatMessages(
+  MessengerBase as unknown as typeof Block
+);

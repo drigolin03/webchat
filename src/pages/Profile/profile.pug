@@ -2,9 +2,20 @@
 	.profile
 		.heading 
 			.user-avatar 
-				img(src=changeAvatar, alt="change avatar")
+				if avatar
+					img(src=avatar alt="user avatar")
+				else
+					img(src=changeAvatar, alt="change avatar")
 			.user-name= title
 		.user-info 
-			| !{fields}
+			| !{email}
+			| !{login}
+			| !{first_name}
+			| !{second_name}
+			| !{display_name}
+			| !{phone}
 		.user-actions
-			| !{actions}
+			| !{change_user_data}
+			| !{change_password}
+			| !{back_to_chats}
+			| !{logout}

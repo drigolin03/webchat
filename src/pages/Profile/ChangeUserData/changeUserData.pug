@@ -2,10 +2,14 @@
 	.profile
 		.heading 
 			.user-avatar 
-				img(src=changeAvatar, alt="change avatar")
-			.user-name= display_name
+				if avatar
+					img(src=avatar, alt="user avatar")
+				else
+					img(src=changeAvatar, alt="change avatar")
+			|!{choose_avatar}
+			|!{change_avatar}
 			.title= title
 		.user-info 
-			| !{fields}
+			|!{form}
 		.user-actions
-			| !{actions}
+			|	!{cancel}

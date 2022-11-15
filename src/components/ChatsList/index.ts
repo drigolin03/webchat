@@ -23,8 +23,9 @@ class ChatsListBase extends Block<ChatsListProps> {
     this.children.chats = this.createChats(this.props);
     this.children.createChatInput = new Input({
       type: "text",
-      label: "Название чата",
+      label: "Создать чат(введите название)",
       className: "create-chat",
+      name: "create-chat",
     });
     this.children.createChat = new Button({
       classes: "button main-button",
@@ -74,4 +75,4 @@ class ChatsListBase extends Block<ChatsListProps> {
 
 const withChats = withStore((state) => ({ chats: [...(state.chats || [])] }));
 
-export const ChatsList = withChats(ChatsListBase);
+export const ChatsList = withChats(ChatsListBase as unknown as typeof Block);
