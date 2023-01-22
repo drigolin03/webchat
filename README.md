@@ -1,6 +1,6 @@
 # Webchat
 
-Student project using Pug and Postcss
+Student project using Pug, Typescript and Webpack
 
 ## Requirements
 
