@@ -2,35 +2,35 @@
 
 Student project using Pug, Typescript and Webpack
 
-## Requirements
+## Демо
+
+[Netlify](https://yatxwebchat.netlify.app/)
+
+## Требования
 
 - NodeJS v12.x+
 - NPM v8.x+
 
-## Install
+## Запуск
 
 1. `git clone https://github.com/andreyatx/middle.messenger.praktikum.yandex.git`
-2. `npm install`
+2. `npm i --legacy-peer-deps`
 
-## Commands
+## Комманды
 
-- Running in a local environment:
+- Запуск локально, в режиме разработки:
   `npm run dev`
 
-- Building the project for production:
+- Сделать сборку:
   `npm run build`
 
-- Running in a production environment:
+- Запуск локально:
   `npm run start`
 
-## Repository
+## Скриншоты
 
-[Github](https://github.com/andreyatx/middle.messenger.praktikum.yandex)
-
-## Live demo
-
-[Heroku](https://damp-cove-73577.herokuapp.com/)
-[Netlify](https://yatxwebchat.netlify.app/)
+![signin.png](./src/assets/img/signin_screen.png)
+![signin.png](./src/assets/img/chats_screen.png)
 
 ## Design
 
