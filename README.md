@@ -1,4 +1,4 @@
-# Webchat
+# WebChat
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0ee280e4-cd97-4563-859c-6d4488f7508a/deploy-status)](https://app.netlify.com/sites/yatxwebchat/deploys)
 
