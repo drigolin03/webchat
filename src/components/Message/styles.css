@@ -1,14 +1,13 @@
 @import "../../main.css";
 
 .message {
-  padding: 15px 10px;
-  margin: 15px 0;
-  max-width: 150px;
-  background: var(--color-secondary);
-  border-radius: 6px;
-
-  .mine {
-    align-self: flex-end;
-    background: #cdc1f1;
-  }
+	padding: 15px 10px;
+	margin: 15px 0;
+	max-width: 150px;
+	background: var(--color-secondary);
+	border-radius: 6px;
+}
+.mine {
+	background: #cdc1f1;
+	align-self: flex-end;
 }
