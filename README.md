@@ -30,7 +30,7 @@ Student project using Pug, Typescript and Webpack
 ## Live demo
 
 [Heroku](https://damp-cove-73577.herokuapp.com/)
-[Netlify](https://imaginative-cascaron-acd808.netlify.app/)
+[Netlify]https://yatxwebchat.netlify.app/profile)
 
 ## Design
 
