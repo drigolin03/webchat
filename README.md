@@ -20,7 +20,7 @@ https://img.shields.io/badge/%D0%A1%D1%82%D0%B0%D1%82%D1%83%D1%81%20%D0%BF%D1%80
 
 ## Запуск
 
-1. `git clone https://github.com/andreyatx/middle.messenger.praktikum.yandex.git`
+1. `git clone https://github.com/andreyatx/WebChat.git`
 2. `npm i --legacy-peer-deps`
 
 3.
