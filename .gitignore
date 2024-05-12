@@ -1,7 +1,0 @@
-# dependencies
-/node_modules
-/dist
-/.vscode
-/.parcel-cache
-/.cache
-/_backup

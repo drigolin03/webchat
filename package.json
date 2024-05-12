@@ -1,5 +1,5 @@
 {
-	"name": "middle.messenger.praktikum.yandex",
+	"name": "middle.messenger",
 	"version": "1.4",
 	"description": "web chat student project",
 	"scripts": {
@@ -10,16 +10,6 @@
 		"test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
 		"prepare": "husky install"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/andreyatx/middle.messenger.praktikum.yandex.git"
-	},
-	"author": "andrey mitrofanov",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/andreyatx/middle.messenger.praktikum.yandex/issues"
-	},
-	"homepage": "https://github.com/andreyatx/middle.messenger.praktikum.yandex#readme",
 	"devDependencies": {
 		"@babel/core": " 7.20.2",
 		"@babel/polyfill": " 7.12.1",
